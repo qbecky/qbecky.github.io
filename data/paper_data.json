@@ -1,27 +1,7 @@
-[{"title": "Constructive Solid Geometry on Neural Signed Distance Fields",
-  "authors": [ "Zoë Marschner", "Silvia Sellán", "Hsueh-Ti Derek Liu", "Alec Jacobson"],
-  "conference": "SIGGRAPH Asia (conference)",
-  "year": 2023,
-  "image": "sdf_csg.png",
-  "links": {  "Project Page": "research/csg_on_neural_sdfs.html","PDF (50mb)": "papers/csg_on_neural_sdfs.pdf", "PDF (9mb)": "papers/csg_on_neural_sdfs_lo_res.pdf", "Code": "https://github.com/zoemarschner/csg_on_nsdf"} 
-},
-  {"title": "Sum-of-Squares Collision Detection for Curved Shapes and Paths",
-  "authors": [ "Paul Zhang*", "Zoë Marschner*", "Justin Solomon", "Rasmus Tamstorf"],
-  "conference": "SIGGRAPH (conference)",
-  "year": 2023,
-  "image": "sos_cd.png",
-  "links": {"PDF": "https://dl.acm.org/doi/pdf/10.1145/3588432.3591507", "Supplement": "https://dl.acm.org/action/downloadSupplement?doi=10.1145%2F3588432.3591507&file=supplemental.pdf"},
-  "note": "(* denotes  equal contribution)"
-},{"title": "Sum-of-Squares Geometry Processing",
-  "authors": ["Zoë Marschner", "Paul Zhang", "David Palmer", "Justin Solomon"],
+[{"title": "Computational Design of a Kit of Parts for Bending Active Structures",
+  "authors": [ "Quentin Becker", "Uday Kusupati", "Seiichi Suzuki", "Mark Pauly"],
   "conference": "SIGGRAPH Asia",
-  "year": 2021,
-  "image": "sosgp.png",
-  "links": {"PDF": "https://arxiv.org/pdf/2110.08451.pdf", "Video": "https://www.youtube.com/watch?v=LXGQCfTt9s0&t=2s"}
-}, {"title": "Hexahedral Mesh Repair via Sum-of-Squares Relaxation",
-  "authors": ["Zoë Marschner", "David Palmer", "Paul Zhang", "Justin Solomon"],
-  "conference": "Symposium on Geometry Processing",
-  "year": 2020,
-  "image": "sos_hex.png",
-  "links": {"PDF": "http://people.csail.mit.edu/jsolomon/assets/sos_hex.pdf", "Code": "https://github.com/zoemarschner/SOS-hex", "Video": "https://www.youtube.com/watch?v=xEMRLEEbGGc"}
+  "year": 2024,
+  "image": "sdf_csg.png",
+  "links": {  "Project Page": "research/kop.html","PDF (50mb)": "papers/paper_kop.pdf", "Code": "https://www.epfl.ch/labs/gcm/research-projects/kit-of-parts/"} 
 }]
