@@ -1,5 +1,5 @@
 :root {
-  --accent_color: #0096EA;
+  --accent_color: #3B82DB;
   --callout_color: 255, 0, 0;
 }
 
@@ -10,19 +10,26 @@
 
 h1 {
 	font-weight: 700;
-	font-family: 'Source Code Pro', monospace;
+	/* font-family: 'Source Code Pro', monospace; */
+	font-family: 'JetBrains', monospace;
+	font-style: normal;
+  	font-weight: normal;
 	font-size: 1.5em;
 }
 
 h2 {
 	font-weight: 600;
-	font-family: 'Source Code Pro', monospace;
+	/* font-family: 'Source Code Pro', monospace; */
+	font-family: 'JetBrains', monospace;
+	font-style: normal;
+  	font-weight: normal;
 	margin-top: 30px;
 	margin-bottom: 10px;
 }
 
 p {
-	font-family: 'Crimson Text', sans-serif;
+	/* font-family: 'Linux Biolinum', sans-serif; */
+	font-family: "JetBrains", monospace;
 	font-size: 17px;
 	line-height: 120%;
 }
@@ -60,9 +67,9 @@ a {
 
 /* cube formatting */
 
-#cube {
+#snake {
 	stroke: var(--accent_color);
 	vertical-align: baseline;
-	margin-right: 20px;
+	margin-right: 0px;
 	cursor: pointer;
 }

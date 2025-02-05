@@ -35,12 +35,20 @@
 .research-title {
   font-size: 20px;
   line-height: 90%;
-  font-family: "Source Code Pro", monospace;
+  font-family: "Linux Biolinum", sans-serif;
+  font-style: normal;
+  font-weight: normal;
   padding-bottom: 10px;
 }
 
+.author-list {
+  font-family: "Linux Biolinum", sans-serif;
+  font-size: 15px;
+}
+
 .author-note {
-  font-size: 14px;
+  font-family: "Linux Biolinum", sans-serif;
+  font-size: 15px;
 }
 
 .links {
@@ -60,6 +68,7 @@
 /* two column redesign code */
 #portrait {
   width: 100%;
+  border-radius: 25px;
   aspect-ratio: 0.75;
   outline: none;
   background-color: #EEE;

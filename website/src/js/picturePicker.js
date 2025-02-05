@@ -5,14 +5,10 @@ window.addEventListener('load', function init() {
 	  })
 	  .then(function(json) {
 	  	image_list = json;
-	  	chosen_image = image_list[Math.floor(Math.random()*image_list.length)];
-
-	  	title = chosen_image.substr(0, chosen_image.indexOf('.'));
-	  	extra_info_ind = title.indexOf("_");
-	  	title = extra_info_ind == -1 ? title : title.substr(0, extra_info_ind);
+	  	chosen_image = image_list[0];
 
 	  	portrait = document.getElementById("portrait");
-	  	portrait.title = title;
+	  	portrait.title = "portrait painted by Léo Bierent";
 	  	portrait.src = "public/img/spotlight_pictures/" + encodeURIComponent(chosen_image);
 
 	  });

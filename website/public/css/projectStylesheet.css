@@ -1,30 +1,78 @@
-/*#text_container {
-	padding-top: 1.5em;
-	width: 80vw;
-	margin: auto;
-	padding-bottom: 1em;
-}*/
-
-#title {
-	padding-bottom: 0;
+:root {
+	--qb-blue: #3B82DB;
+	--qb-blue-rgb: 59, 130, 219;
 }
 
+#outer_container {
+	width: 900px;
+	margin: 0 auto;
+}
 
-#/*home_icon {
-	stroke: var(--accent_color);
-	stroke-width: 2.75;
-	fill: none;
-	width: 24px;
-	height: 24px;
-	align-self: center;
-	padding-bottom: 1.5em;
-}*/
+#title {
+	padding-bottom: 0.5em;
+	font-family: 'Linux Biolinum', sans-serif;
+	font-size: 30px;
+	font-style: normal;
+  	font-weight: normal;
+}
 
-#heading {
-	display: flex;
-	flex-direction: column;
-	justify-content: left;
-	padding-bottom: 1.5em;
+h1 {
+	font-family: 'Linux Biolinum', sans-serif;
+	font-weight: bold;
+	font-size: 1.9em;
+	padding-top: 1em;
+}
+
+h2 {
+	font-family: 'Linux Biolinum', sans-serif;
+	font-weight: normal;
+	margin-bottom: 0.3em;
+	margin-top: 1.5em;
+}
+
+p {
+	font-family: 'Linux Libertine', serif;
+	margin-top: 0em; 
+}
+
+#authors > p {
+	font-family: 'Linux Biolinum', sans-serif;
+	font-size: 20px;
+	font-style: normal;
+  	font-weight: normal;
+	text-transform: uppercase;
+	margin-bottom: 1px;
+}
+
+#authors > p > a {
+	color: black;
+	text-decoration-color: #909090;
+	text-decoration-style: dotted;
+}
+
+#authors > p > a > b {
+	color: black;
+	text-decoration-color: #909090;
+	text-decoration-style: dotted;
+}
+
+#authors > p > a:hover {
+	color: #606060;
+	text-decoration-color: var(--qb-blue);
+}
+
+#authors > p > a > b:hover {
+	color: #606060;
+	text-decoration-color: var(--qb-blue);
+}
+
+#authors > p > span {
+	text-transform: none;
+	font-size: 17px;
+}
+
+#authors {
+	padding-bottom: 0.67em;
 }
 
 #home_link_box {
@@ -35,50 +83,32 @@
 	font-size: 0.75em;
 }
 
-#title_box {
-	display: flex;
-	align-items: baseline;
-	justify-content: space-between;
-	flex-wrap: wrap;
-}
-
-
-/* styles for specific blocks in the page */
-
-#outer_container > * {
-	padding-bottom: 1.5em;
-}
-
-
-#outer_container > img {
-	display: block;
- 	margin-left: auto;
- 	margin-right: auto;	
- 	max-width: 100%;
- 	width: 500px;
-}
-
-.caption {
-	width: 500px;
-	max-width: 80vw;
-}
-
-.gallery-caption, .caption {
-	margin-top: -1em;
-	color: gray;
-	font-size: 15px;
-	margin-left: auto;
-    margin-right: auto;
-}
-
-
-.gallery {
-	display: flex;
-	gap: 20px;
-}
-
-.gallery > div > img {
+#teaser {
 	width: 100%;
-  	height: auto;
+	padding-bottom: 0.3em;
 }
 
+pre {
+	margin-bottom: 0.5rem;
+	padding: 0.5rem  0.5rem;
+	border-radius: 5px;
+	background-color: #eeeeee;
+	display: grid;
+	white-space: wrap;
+}
+
+pre code {
+	padding: 0rem  1rem;
+}
+
+code {
+	font-family: "Fira Code", Menlo, Monaco, Consolas, "Courier New", monospace;
+	font-size: 80%;
+	max-width: 100%;
+	overflow-x: auto;
+	margin: 0 0.1rem 0  0.1rem;
+	padding: 0.2rem 0.5rem 0.1rem  0.5rem;
+	background-color: #eeeeee;
+	border-radius: 3px;
+	white-space: pre;
+}

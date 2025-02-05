@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../public/css/jetbrainsFontsStylesheet.css">
+	<link rel="stylesheet" href="../public/css/linuxFontsStylesheet.css">
+	<title>Computational Design of a Kit of Parts for Bending Active Structures</title>
+	<link rel="stylesheet" href="../public/css/generalStylesheet.css">
+	<link rel="stylesheet" href="../public/css/projectStylesheet.css">
+	<link rel="stylesheet" href="../public/css/navbarStylesheet.css">
+	<link rel="stylesheet" href="../public/css/darkmodeStylesheet.css">
+	<script src="../src/js/cube.js"></script>
+	<script src="../src/js/darkmode.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Source+Code+Pro:wght@600;700&display=swap" rel="stylesheet">
+	<link rel="icon" href="../favicon.png" sizes="32x32">
+</head>
+<body>
+
+<div id="outer_container">
+	<h1 id="title">Computational Design of a Kit of Parts for Bending Active Structures</h1>
+	<div id="authors">
+		<p><a href=https://people.epfl.ch/quentin.becker><b>Quentin Becker*</b></a>, <span>EPFL, Switzerland</span></p><p><a href=https://udaykusupati.github.io>Uday Kusupati*</a>, <span>EPFL, Switzerland</span></p><p><a href=https://people.epfl.ch/seiichi.suzuki>Seiichi Suzuki</a>, <span>EPFL, Switzerland</span></p><p><a href=https://people.epfl.ch/mark.pauly>Mark Pauly</a>, <span>EPFL, Switzerland</span></p>
+	</div>
+	<img id="teaser" src="../papers/kop_bending/teaser.pdf"/>
+	<p id="caption"> $TEASER_CAPTION </p>
+	<h2> Abstract </h2>
+	<p> Bending-active structures are composed of elastic elements that deform to achieve a desired target shape. To support effective design, inverse algorithms have been proposed that optimize the geometry of each element specifically for each design. This makes it difficult to reuse elements across designs or gain efficiency in fabrication through mass production. We address this issue and propose a computational framework to rationalize bending-active structures into a sparse kit of parts. Our method solves for the optimal part geometry such that multiple input designs can be faithfully realized with the same kit of parts. Assigning parts to different assemblies leads to a combinatorial explosion that makes exhaustive search intractable. Instead, we propose a relaxed continuous optimization incorporating a physics-based simulation in its inner loop to model the elastic deformation of the bending-active structure accurately. Our algorithm allows analyzing different design trade-offs of a kit of parts to tune the balance between fabrication complexity and fidelity to the original designs. We demonstrate our method on three different classes of bending-active structures, showcasing the effectiveness of our approach for part reuse and sustainable practices in fabrication-driven design. </p>
+
+	<h2> Fast Forward </h2>
+<video controls width="100%">
+	<source src=../papers/kop_bending/fast_forward.mp4 type=video/mp4></iframe>
+</video>
+
+	<h2 id="cite-us">Cite Us</h2>
+	<pre><code> @article{10.1145/3687966,
+    author = "Becker, Quentin and Kusupati, Uday and Suzuki, Seiichi and Pauly, Mark",
+    title = "Computational Design of a Kit of Parts for Bending Active Structures",
+    year = "2024",
+    issue_date = "December 2024",
+    publisher = "Association for Computing Machinery",
+    address = "New York, NY, USA",
+    volume = "43",
+    number = "6",
+    issn = "0730-0301",
+    url = "https://doi.org/10.1145/3687966",
+    doi = "10.1145/3687966",
+    journal = "ACM Trans. Graph.",
+    month = "November",
+    articleno = "230",
+    numpages = "16",
+    keywords = "kit of parts, bending-active structures, numerical optimization, physics-based simulation, fabrication-aware design"
+}
+ </code></pre>
+
+</div>
+
+
+<p id="footer">
+Adapted from <a href="https://github.com/zoemarschner/zoemarschner.com" class="ext_link">Zoë Marschner's website</a> / last updated February 2025</p>
+
+		<div id="nav-bar"> 
+		<h2> <a href="/" id="home_link"> <svg id="home_icon" viewbox="0 0 50 45">
+				<polyline class="st0" points="49,26.12 25,2.98 1,26.12 "/>
+				<path class="st0" d="M7.96,19.61v22.25h10.59c0-11.61,2.96-15.74,6.61-15.74s6.61,4.13,6.61,15.74h10.28V19.61"/>
+			</svg> 
+			Home</a>
+		</h2>
+		<h2>/</h2>
+		<h2><a href="/publications.html">  Publications </a></h2>
+		<h2>/</h2>
+		<h2>Computational Design of a Kit of Parts for Bending Active Structures</h2>
+	</div>
+</body>
+</html>

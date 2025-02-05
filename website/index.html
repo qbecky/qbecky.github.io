@@ -4,10 +4,11 @@
 	<meta charset="utf-8">
 	<title>Quentin Becker</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../public/css/jetbrainsFontsStylesheet.css">
+	<link rel="stylesheet" href="../public/css/linuxFontsStylesheet.css">
 	<link rel="stylesheet" href="public/css/homeStylesheet.css">
 	<link rel="stylesheet" href="public/css/generalStylesheet.css">
 	<link rel="stylesheet" href="public/css/darkmodeStylesheet.css">
-	<script src="src/js/cube.js"></script>
 	<script src="src/js/researchListBuilder.js"></script>
 	<script src="src/js/darkmode.js"></script>
 	<script src="src/js/picturePicker.js"></script>
@@ -21,9 +22,7 @@
 			<img id="portrait"> 
 			<div id="info">
 				<h1 id="name"> 
-				<svg id="cube" height="30" width="30">
-		 		 	<path id="cube_path" stroke-width="1" stroke-linejoin="round" fill="none"/>
-				</svg>Quentin Becker
+				<img src="anim.gif" alt="an efficient snake"  width="30" id="snake"/>Quentin Becker
 				</h1> 
 				<h2> Postdoctoral associate at EPFL</h2>
 				<!-- inline svgs for icons. extracted from files in public/img/icons -->
@@ -48,24 +47,30 @@
 	<div id="main">
 		<p id="about">Hey! I'm a newly graduated PhD student at EPFL.<br><br>
 		</p>
-		
-		<h2 id="research">Research</h2>
-		<div id ="research-list">
-		</div>
-		<h2 id="teaching">Teaching</h2>
-		<div id ="teaching-list">
-		</div>
-		<h2 id="projects">
-			<a href="/projects.html" class="ext_link">Projects<svg viewBox="0 0 350 350" class="link_arrow"> 
+		<h2 id="research">
+			<a href="/publications.html" class="ext_link">Publications<svg viewBox="0 0 350 350" class="link_arrow"> 
 					<line class="st0" x1="25" y1="325" x2="325" y2="25"/>
 					<path class="st0" d="M325,25"/>
 					<polyline class="st1" points="110,25 325,25 325,240 "/>
 				</svg>
 			</a>
 		</h2>
+		<div id ="research-list">
+		</div>
+		<!-- <h2 id="teaching">Teaching</h2>
+		<div id ="teaching-list">
+		</div> -->
+		<!-- <h2 id="projects">
+			<a href="/projects.html" class="ext_link">Projects<svg viewBox="0 0 350 350" class="link_arrow"> 
+					<line class="st0" x1="25" y1="325" x2="325" y2="25"/>
+					<path class="st0" d="M325,25"/>
+					<polyline class="st1" points="110,25 325,25 325,240 "/>
+				</svg>
+			</a>
+		</h2> -->
 	</div>
 	
 	<p id="footer">
-			Designed and <a href="https://github.com/zoemarschner/zoemarschner.com" class="ext_link">coded</a> by Zoë Marschner / last updated February 2025</p>
+	Adapted from <a href="https://github.com/zoemarschner/zoemarschner.com" class="ext_link">Zoë Marschner's website</a> / last updated February 2025</p>
 </body>
 </html>

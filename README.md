@@ -12,6 +12,17 @@ Running `gulp build` will build python and sass files.
 
 (Building the python files also updates the date at the bottom of the page.)
 
+## Building Python files
+
+You will need to install a few libraries to run the script `build.sh`, you can run
+
+```
+conda create --name web_env
+conda activate web_env
+conda install -y pillow absl-py
+pip install pybtex setuptools
+```
+
 ## Deployment
 
 In order to deploy through github pages, a new branch with the `website` subdirectory as its root must be created to do this, run the command

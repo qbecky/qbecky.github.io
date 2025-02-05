@@ -24,11 +24,10 @@ function processResearchJson(jsonObj, list_id) {
 
 		let img = document.createElement("div");
 		img.classList.add("research-image");
-		img.style.setProperty("background-image", `url(public/img/project_images/${paper.image})`);
+		img.style.setProperty("background-image", `url(${paper.image})`);
 		outerDiv.appendChild(img);
 
 		let info = document.createElement("div");
-		info.classList.add("research-info");
 
 		let title = document.createElement("p");
 		title.classList.add("research-title");
@@ -36,6 +35,7 @@ function processResearchJson(jsonObj, list_id) {
 		info.appendChild(title);
 
 		let pubinfo = document.createElement("p");
+		pubinfo.classList.add("author-list");
 		pubinfo.innerHTML = `${paper.authors.join(", ")}</br> <i>${paper.conference}</i>, ${paper.year}`
 		info.appendChild(pubinfo);
 		outerDiv.appendChild(info);

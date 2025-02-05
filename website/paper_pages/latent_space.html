@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../public/css/jetbrainsFontsStylesheet.css">
+	<link rel="stylesheet" href="../public/css/linuxFontsStylesheet.css">
+	<title>On Linear Interpolation in the Latent Space of Deep Generative Models.</title>
+	<link rel="stylesheet" href="../public/css/generalStylesheet.css">
+	<link rel="stylesheet" href="../public/css/projectStylesheet.css">
+	<link rel="stylesheet" href="../public/css/navbarStylesheet.css">
+	<link rel="stylesheet" href="../public/css/darkmodeStylesheet.css">
+	<script src="../src/js/cube.js"></script>
+	<script src="../src/js/darkmode.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Source+Code+Pro:wght@600;700&display=swap" rel="stylesheet">
+	<link rel="icon" href="../favicon.png" sizes="32x32">
+</head>
+<body>
+
+<div id="outer_container">
+	<h1 id="title">On Linear Interpolation in the Latent Space of Deep Generative Models.</h1>
+	<div id="authors">
+		<p><a href=https://srl.ethz.ch/the-group/people/mike-yan-michelis.html>Mike Yan Michelis</a>, <span>EPFL, Switzerland</span></p><p><a href=https://people.epfl.ch/quentin.becker><b>Quentin Becker</b></a>, <span>EPFL, Switzerland</span></p>
+	</div>
+	<img id="teaser" src="../papers/latent_space/teaser.pdf"/>
+	<p id="caption"> $TEASER_CAPTION </p>
+	<h2> Abstract </h2>
+	<p> The underlying geometrical structure of the latent space in deep generative models is in most cases not Euclidean, which may lead to biases when comparing interpolation capabilities of two models. Smoothness and plausibility of linear interpolations in latent space are associated with the quality of the underlying generative model. In this paper, we show that not all such interpolations are comparable as they can deviate arbitrarily from the shortest interpolation curve given by the geodesic. This deviation is revealed by computing curve lengths with the pull-back metric of the generative model, finding shorter curves than the straight line between endpoints, and measuring a non-zero relative length improvement on this straight line. This leads to a strategy to compare linear interpolations across two generative models. We also show the effect and importance of choosing an appropriate output space for computing shorter curves. For this computation we derive an extension of the pull-back metric. </p>
+
+	
+
+	<h2 id="cite-us">Cite Us</h2>
+	<pre><code> @inproceedings{michelis2021linear,
+    author = "Michelis, Mike Yan and Becker, Quentin",
+    title = "On Linear Interpolation in the Latent Space of Deep Generative Models",
+    month = "April",
+    year = "2021",
+    booktitle = "ICLR 2021 Workshop on Geometrical and Topological Representation Learning"
+}
+ </code></pre>
+
+</div>
+
+
+<p id="footer">
+Adapted from <a href="https://github.com/zoemarschner/zoemarschner.com" class="ext_link">Zoë Marschner's website</a> / last updated February 2025</p>
+
+		<div id="nav-bar"> 
+		<h2> <a href="/" id="home_link"> <svg id="home_icon" viewbox="0 0 50 45">
+				<polyline class="st0" points="49,26.12 25,2.98 1,26.12 "/>
+				<path class="st0" d="M7.96,19.61v22.25h10.59c0-11.61,2.96-15.74,6.61-15.74s6.61,4.13,6.61,15.74h10.28V19.61"/>
+			</svg> 
+			Home</a>
+		</h2>
+		<h2>/</h2>
+		<h2><a href="/publications.html">  Publications </a></h2>
+		<h2>/</h2>
+		<h2>On Linear Interpolation in the Latent Space of Deep Generative Models.</h2>
+	</div>
+</body>
+</html>

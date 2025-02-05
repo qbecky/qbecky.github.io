@@ -4,7 +4,7 @@
 	--callout_color: 181, 171, 255;
 }
 
-*, a { color: white }
+*, a, #authors > p > a , #authors > p > a > b { color: white }
 
 body {
 	background-color: rgb(32, 33, 36);
