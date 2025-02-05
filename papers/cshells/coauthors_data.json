@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Quentin Becker",
+        "affiliation": "EPFL, Switzerland",
+        "website": "https://people.epfl.ch/quentin.becker",
+        "orcid": "0000-0003-0952-7063"
+    },
+    {
+        "name": "Seiichi Suzuki",
+        "affiliation": "EPFL, Switzerland",
+        "website": "https://people.epfl.ch/seiichi.suzuki",
+        "orcid": "0000-0003-3509-234X"
+    },
+    {
+        "name": "Yingying (Samara) Ren",
+        "affiliation": "EPFL, Switzerland",
+        "website": "https://samararen.github.io",
+        "orcid": "0000-0001-6229-3724"
+    },
+    {
+        "name": "Davide Pellis",
+        "affiliation": "ISTI-CNR, Italy",
+        "website": "https://dl.acm.org/profile/99659223008",
+        "orcid": "0000-0001-9376-9473"
+    },
+    {
+        "name": "Julian Panetta",
+        "affiliation": "University of California, Davis, USA",
+        "website": "https://julianpanetta.com",
+        "orcid": "0000-0002-8331-2354"
+    },
+    {
+        "name": "Mark Pauly",
+        "affiliation": "EPFL, Switzerland",
+        "website": "https://people.epfl.ch/mark.pauly",
+        "orcid": "0000-0003-4957-4825"
+    }
+]

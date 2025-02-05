@@ -2,10 +2,10 @@ let stylesheet_init = false
 
 window.addEventListener('load', function init() {
 	
-	// cube click function
-	let cube = document.getElementById("cube");
-	if (cube !== null) {
-		cube.addEventListener('click', function() { 
+	// switch click function
+	let switchToDark = document.getElementById("snake");
+	if (switchToDark !== null) {
+		switchToDark.addEventListener('click', function() { 
 			localStorage.darkMode = !(localStorage.darkMode === 'true');
 			update_darkmode(localStorage.darkMode === 'true');
 			localStorage.hello2 = localStorage.darkMode
