@@ -126,6 +126,32 @@
   gap: 0.5em;
 }
 
+#info_links {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 0.5em;
+  margin-top: 0.3em;
+}
+
+#info_links > h2 > .ext_link {
+  border-bottom: 0px solid white;
+}
+
+.icons_info{
+	stroke: var(--accent_color);
+	fill: var(--accent_color);
+}
+
+.icons_info path{
+	stroke: var(--accent_color);
+	fill: var(--accent_color);
+}
+
+#info_links > h2 > .ext_link:hover {
+	background-position: 0%;
+}
+
 #mail {
   vertical-align: baseline;
   height: 16px;
