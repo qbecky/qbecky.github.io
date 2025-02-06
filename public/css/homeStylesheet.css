@@ -148,6 +148,11 @@
 	fill: var(--accent_color);
 }
 
+.icons_info_path{
+  stroke: var(--accent_color);
+  fill: var(--accent_color);
+}
+
 #info_links > h2 > .ext_link:hover {
 	background-position: 0%;
 }

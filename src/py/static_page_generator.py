@@ -4,6 +4,8 @@ In a terminal, with the conda environment turned on, run the following command l
 
 python static_page_generator.py
 python static_page_generator.py --erase_existing
+python static_page_generator.py --projects kop_bending --erase_existing
+python static_page_generator.py --projects all --erase_existing
 """
 
 import os
@@ -28,6 +30,7 @@ from pybtex.database.input import bibtex
 
 FLAGS = flags.FLAGS
 flags.DEFINE_boolean("erase_existing", False, "Whether to erase existing pages.")
+flags.DEFINE_list("projects", [], "List of projects to generate pages for ('all' for all the projects).")
 
 # returns str resulting of replacing first instance of template in string with replacement
 def replaceString(template, replacement, string):
@@ -52,16 +55,21 @@ def main(_):
 		projectTemplate = template_file.read()
 
 	for project in json_data:
+
 		pageTitle = project["project_name"]
 		relLink = os.path.join(PATH_TO_PAPER_PAGES, pageTitle + '.html')
 		project["page_link"] = relLink
+
+		resetAll = FLAGS.projects and FLAGS.projects[0] == "all"
+
+		if (FLAGS.projects and project["project_name"] not in FLAGS.projects) and not resetAll:
+			print(f"Skipping {pageTitle}. Not in projects list.")
+			continue
 
 		if os.path.exists(relLink) and not FLAGS.erase_existing:
 			print(f"Skipping {pageTitle}. Page already exists.")
 			continue
 
-		with open(os.path.join(PATH_TO_PAPER_FOLDER, project['project_name'], 'coauthors_data.json'), 'r') as json_file:
-			json_authors = json.load(json_file)
 		parser = bibtex.Parser()
 		bib_data = parser.parse_file(os.path.join(PATH_TO_PAPER_FOLDER, project['project_name'], 'citation.bib'))
 		assert len(bib_data.entries) == 1, f"Expected 1 entry in {project['project_name']}/citation.bib, got {len(bib_data.entries)}"
@@ -76,6 +84,8 @@ def main(_):
 		thisTemplate = replaceString("$TITLE", project["title"], thisTemplate)
 
 		#format the authors
+		with open(os.path.join(PATH_TO_PAPER_FOLDER, project['project_name'], 'coauthors_data.json'), 'r') as json_file:
+			json_authors = json.load(json_file)
 		textAuthors = ''
 		for author in json_authors:
 			name = author["name"]
@@ -83,6 +93,11 @@ def main(_):
 				name = "<b>" + name + "</b>"
 			decoratedName = "<a href=" + author["website"] + ">" + name + "</a>"
 			textAuthors += "<p>" + decoratedName + ', ' + "<span>" + author["affiliation"] + "</span>" + "</p>"
+		textAuthors += "<br><p><span><i>" + project['conference'] + "</i>, " + str(project['year']) + "</span></p>"
+		if "note" in project:
+			# textAuthors += "<p>" + project['note'] + "</p>"
+			textAuthors += "<p><span>" + project['note'] + "</span></p>"
+		textAuthors += "<br>"
 		thisTemplate = replaceString("$AUTHORS", textAuthors, thisTemplate)
 
 		#format the abstract
@@ -92,9 +107,13 @@ def main(_):
 		citation = bib_data.to_string(bib_format='bibtex')
 		thisTemplate = replaceString("$CITATION", citation, thisTemplate)
 
-		#fetch the teaser
+		#fetch the teaser and the caption
 		teaser_path = project["teaser_image"]
 		thisTemplate = replaceString("$PATH_TO_TEASER_IMAGE", teaser_path, thisTemplate)
+		teaser_caption_path = os.path.join(PATH_TO_WEB, project["teaser_caption"])
+		with open(teaser_caption_path, 'r') as caption_file:
+			teaser_caption = caption_file.read()
+		thisTemplate = replaceString("$TEASER_CAPTION", teaser_caption, thisTemplate)
 
 		#fetch the fast forward if it exists
 		if "fast_forward" in project:

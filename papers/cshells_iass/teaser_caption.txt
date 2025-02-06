@@ -1,0 +1,1 @@
+The family of edits (conformal, attraction points) to a reference linkage we introduce allows obtaining a wide range of C-shell designs. Combined with an efficient forward simulation tool, this enables users to rapidly explore the design space of C-shells.

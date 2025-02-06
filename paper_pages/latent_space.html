@@ -20,10 +20,10 @@
 <div id="outer_container">
 	<h1 id="title">On Linear Interpolation in the Latent Space of Deep Generative Models.</h1>
 	<div id="authors">
-		<p><a href=https://srl.ethz.ch/the-group/people/mike-yan-michelis.html>Mike Yan Michelis</a>, <span>EPFL, Switzerland</span></p><p><a href=https://people.epfl.ch/quentin.becker><b>Quentin Becker</b></a>, <span>EPFL, Switzerland</span></p>
+		<p><a href=https://srl.ethz.ch/the-group/people/mike-yan-michelis.html>Mike Yan Michelis</a>, <span>EPFL, Switzerland</span></p><p><a href=https://people.epfl.ch/quentin.becker><b>Quentin Becker</b></a>, <span>EPFL, Switzerland</span></p><br><p><span><i>ICLR 2021 Workshop on Geometrical and Topological Representation Learning</i>, 2021</span></p><p><span>(Spotlight Presentation)</span></p><br>
 	</div>
 	<img id="teaser" src="../papers/latent_space/teaser.pdf"/>
-	<p id="caption"> $TEASER_CAPTION </p>
+	<p id="caption"> Interpolating between two ﬁxed points in latent space of a VAE trained on MNIST digits. Top sequence is along the straight line, middle is shorter distance as deﬁned by the pull-back metric of the generator, and bottom is according to metric with a logistic regression feature mapping on top of generator. Getting shorter paths between two prescribed generator outputs (digits in this example) allows more objectively comparing the interpolation capabilities of different generative models. </p>
 	<h2> Abstract </h2>
 	<p> The underlying geometrical structure of the latent space in deep generative models is in most cases not Euclidean, which may lead to biases when comparing interpolation capabilities of two models. Smoothness and plausibility of linear interpolations in latent space are associated with the quality of the underlying generative model. In this paper, we show that not all such interpolations are comparable as they can deviate arbitrarily from the shortest interpolation curve given by the geodesic. This deviation is revealed by computing curve lengths with the pull-back metric of the generative model, finding shorter curves than the straight line between endpoints, and measuring a non-zero relative length improvement on this straight line. This leads to a strategy to compare linear interpolations across two generative models. We also show the effect and importance of choosing an appropriate output space for computing shorter curves. For this computation we derive an extension of the pull-back metric. </p>
 
