@@ -35,6 +35,39 @@ p {
 	margin-top: 0em; 
 }
 
+#links {
+	display: flex;
+    align-items: center;     /* Center items vertically */
+	gap: 10px;
+	font-family: 'Linux Biolinum', sans-serif;
+	font-size: 20px;
+}
+
+#links a {
+	color: var(--accent_color);
+	stroke: var(--accent_color);
+	fill: var(--accent_color);
+}
+
+#links a:hover {
+	color: #606060;
+	stroke: #606060;
+	fill: #606060;
+}
+
+#links-outer{
+	display: flex;
+	width: 100%;
+	justify-content: left;
+	padding-bottom: 2em;
+}
+
+#caption {
+	font-family: 'Linux Biolinum', sans-serif;
+	font-style: normal;
+	font-size: 0.9em;
+}
+
 #authors > p {
 	font-family: 'Linux Biolinum', sans-serif;
 	font-size: 20px;
@@ -46,24 +79,26 @@ p {
 
 #authors > p > a {
 	color: black;
-	text-decoration-color: #909090;
+	text-decoration-color: black;
 	text-decoration-style: dotted;
+	text-decoration: underline;
 }
 
 #authors > p > a > b {
 	color: black;
-	text-decoration-color: #909090;
+	text-decoration-color: black;
 	text-decoration-style: dotted;
+	text-decoration: underline;
 }
 
 #authors > p > a:hover {
 	color: #606060;
-	text-decoration-color: var(--qb-blue);
+	text-decoration-color:  #606060;;
 }
 
 #authors > p > a > b:hover {
 	color: #606060;
-	text-decoration-color: var(--qb-blue);
+	text-decoration-color:  #606060;;
 }
 
 #authors > p > span {

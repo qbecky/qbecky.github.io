@@ -19,6 +19,7 @@ PATH_TO_REPO = parent_dir(parent_dir(parent_dir(PATH_TO_SCRIPT)))
 PATH_TO_WEB = os.path.join(PATH_TO_REPO, "website")
 PATH_TO_DATA = os.path.join(PATH_TO_WEB, "data")
 PATH_TO_PAPER_IMAGES = os.path.join(PATH_TO_WEB, "public/img/project_images")
+PATH_TO_ICONS = os.path.join(PATH_TO_WEB, "public/img/icons")
 PATH_TO_PAPER_PAGES = os.path.join(PATH_TO_WEB, "paper_pages")
 PATH_TO_PAPER_FOLDER = os.path.join(PATH_TO_WEB, "papers")
 
@@ -44,6 +45,18 @@ def get_aspect_ratio(img_string):
 	file = os.path.join(PATH_TO_PAPER_IMAGES, img_string)
 	with Image.open(file) as im:
 	    return im.width / im.height
+	
+def fetch_svg_icon_text(link_name, width, height):
+	if "PDF" in link_name:
+		icon_name = "icons8-file.svg"
+	elif "Code" in link_name:
+		icon_name = "code-solid.svg"
+	path_to_icon = os.path.join(PATH_TO_ICONS, icon_name)
+	with open(path_to_icon, 'r') as icon_file:
+		icon_text = icon_file.read()
+	split_icon_text = icon_text.split("<svg")
+	new_icon_text = split_icon_text[0] + f'<svg width={width}px height={height}px class="icon_links"' + split_icon_text[1]
+	return new_icon_text
 
 def main(_):
 	# load json file
@@ -95,10 +108,20 @@ def main(_):
 			textAuthors += "<p>" + decoratedName + ', ' + "<span>" + author["affiliation"] + "</span>" + "</p>"
 		textAuthors += "<br><p><span><i>" + project['conference'] + "</i>, " + str(project['year']) + "</span></p>"
 		if "note" in project:
-			# textAuthors += "<p>" + project['note'] + "</p>"
 			textAuthors += "<p><span>" + project['note'] + "</span></p>"
 		textAuthors += "<br>"
 		thisTemplate = replaceString("$AUTHORS", textAuthors, thisTemplate)
+
+		#format the links
+		textLinks = []
+		for link_name, link_val in project["links"].items():
+			if link_name == "Project Page":
+				continue
+			if "PDF" in link_name:
+				link_val = '../' + link_val
+			textIcon = fetch_svg_icon_text(link_name, 18, 18)
+			textLinks.append("<a href=" + link_val + ">" + textIcon + " " + link_name + "</a>")
+		thisTemplate = replaceString("$LINKS", '<p>•</p>'.join(textLinks), thisTemplate)
 
 		#format the abstract
 		thisTemplate = replaceString("$ABSTRACT", abstract, thisTemplate)
