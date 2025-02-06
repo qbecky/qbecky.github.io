@@ -1,1 +1,32 @@
-[]
+[
+    {
+        "title": "Geometric Computing",
+        "terms": "Fall 2021, Fall 2023",
+        "link": "https://edu.epfl.ch/coursebook/en/geometric-computing-CS-457",
+        "venue": "EPFL"
+    },
+    {
+        "title": "Introduction to Computer Graphics",
+        "terms": "Spring 2020, Spring 2021",
+        "link": "https://staging-edu.epfl.ch/coursebook/en/computer-graphics-CS-341",
+        "venue": "EPFL"
+    },
+    {
+        "title": "Analysis I",
+        "terms": "Fall 2020",
+        "link": "https://edu.epfl.ch/coursebook/en/analysis-i-english-MATH-101-EN",
+        "venue": "EPFL"
+    },
+    {
+        "title": "Analysis II",
+        "terms": "Spring 2022",
+        "link": "https://edu.epfl.ch/coursebook/en/analysis-ii-english-MATH-106-EN",
+        "venue": "EPFL"
+    },
+    {
+        "title": "Introdution to Programming",
+        "terms": "Fall 2022, Fall 2024",
+        "link": "https://edu.epfl.ch/coursebook/en/introduction-to-programming-CS-107",
+        "venue": "EPFL"
+    }
+]

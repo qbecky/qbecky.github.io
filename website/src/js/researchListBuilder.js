@@ -1,5 +1,5 @@
 window.addEventListener('load', function() {
-	let dataToLoad = {'data/paper_data.json': 'research-list', 'data/course_data.json': 'teaching-list'}
+	let dataToLoad = {'data/paper_data.json': 'research-list'}
 
 	for (const [data, container_id] of Object.entries(dataToLoad)) {
 		//gets project data from json file
