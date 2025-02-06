@@ -1,0 +1,3 @@
+A kit of parts allows cost-eﬀective fabrication of bending-active assemblies. Our general optimization method finds the part geometries to best
+reproduce a given set of input designs and can be specialized to diﬀerent material systems. Left: Umbrella meshes deploy from a compact assembly state
+towards a target equilibrium. Right: Bending-active orthogonal gridshells assembled from straight beams that deform to best approximate the target surface.
