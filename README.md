@@ -12,6 +12,13 @@ Running `gulp build` will build python and sass files.
 
 (Building the python files also updates the date at the bottom of the page.)
 
+IN a terminal, install `gulp` and `sass` through the `brew` commands
+
+```
+brew install gulp
+brew install sass/sass/sass
+```
+
 ## Building Python files
 
 You will need to install a few libraries to run the script `build.sh`, you can run
