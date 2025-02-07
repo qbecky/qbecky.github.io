@@ -230,7 +230,7 @@
   }
 }
 /* make homepage responsive */
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
   #sidebar {
     width: 40vw;
   }
@@ -246,14 +246,14 @@
     align-items: flex-start;
   }
 }
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 800px) {
   .research-container {
     flex-direction: column;
     gap: 15px;
     padding-bottom: 50px;
   }
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 800px) {
   #sidebar {
     position: relative;
     width: auto;
@@ -273,10 +273,6 @@
   }
   #portrait {
     height: 60vw;
-    width: auto;
-    margin-right: 10px;
-    object-fit: contain;
-    object-position: left;
     width: fit-content;
   }
   #main {
