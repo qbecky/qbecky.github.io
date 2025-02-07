@@ -44,3 +44,8 @@ In order to add a paper from a list of publications, you must:
 - Add an entry to `data/paper_data.json` following the existing entries. The paths must be given relative to the position of `index.html` or `paper_pages/` depending on the field.
 - Add the associated material in a new folder in `papers/` with the same name as the one given in `data/paper_data.json` in the field `"project_name"`.
 - Run `public/src/py/static_page_generator.py` with the conda environment activated `conda activate web_env`. Be careful with the flag `--erase existing` and specify the list of project pages you would like to update.
+
+## Adding a page
+
+To add a page, you must:
+- Add the page to the list of pages to be updated when running the `public/src/py/update_date.py` script.

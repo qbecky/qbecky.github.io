@@ -11,7 +11,7 @@ gulp.task('date', function(callback) {
 });
 
 gulp.task('build_page', function(callback) {
-  exec('cd website/src/py\npython3 staticPageGenerator.py\ncd ../../..', function (err, stdout, stderr) {
+  exec('cd website/src/py\npython3 static_page_generator.py --projects all\ncd ../../..', function (err, stdout, stderr) {
     console.log(stdout.slice(0, -1));
     if (stderr != 0) {console.log(stderr);}
     callback(err);
