@@ -2,8 +2,8 @@ from datetime import datetime
 
 now = datetime.now()
 
-files = ['projectTemplate.html', '../../index.html', '../../projects.html']
-new_contents = [];
+files = ['paper_template.html', '../../index.html', '../../publications.html']
+new_contents = []
 now_str = now.strftime("%B %Y")
 update_str = "last updated"
 for file in files:
