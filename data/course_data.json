@@ -28,5 +28,11 @@
         "terms": "Fall 2022, Fall 2024",
         "link": "https://edu.epfl.ch/coursebook/en/introduction-to-programming-CS-107",
         "venue": "EPFL"
+    },
+    {
+        "title": "Introductory Physics",
+        "terms": "Fall 2017, Spring 2017",
+        "link": "https://guide.berkeley.edu/courses/physics/",
+        "venue": "University of California, Berkeley"
     }
 ]
