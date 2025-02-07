@@ -1,27 +1,20 @@
-
 /* general spacing */
-
-// #outer_container {
-// 	padding-top: 10%;
-// 	margin: 0 auto;
-// 	width: 80vw;
-// }
-
 #name {
 	display: flex;
-    align-items: center;
-    // padding-bottom: 30px;
-
-}
-
-#project_grid {
+	align-items: center;
+  }
+  
+  #project_grid {
 	padding-bottom: 60px;
-}
-
-
-/* research formatting */
-
-.research-image {
+  }
+  
+  .about {
+	font-family: "Linux Libertine", serif;
+	font-size: 17px;
+  }
+  
+  /* research formatting */
+  .research-image {
 	background-image: url("../img/project_images/sos_hex.png");
 	height: 10rem;
 	width: 10rem;
@@ -30,285 +23,275 @@
 	flex-shrink: 0;
 	margin-right: 1em;
 	background-color: #e6e7e7;
-}
-
-.research-container {
-	width: 100%; 
+  }
+  
+  .research-container {
+	width: 100%;
 	display: flex;
-	// flex-grow: 1;
 	flex-direction: row;
-	// flex-wrap: wrap;
 	justify-content: flex-start;
 	padding-bottom: 30px;
-}
-
-.research-container:last-child {
+  }
+  
+  .research-container:last-child {
 	padding-bottom: 0px;
-}
-
-.research-title {
+  }
+  
+  .research-title {
 	font-size: 20px;
-    line-height: 90%;
-    font-family: 'Source Code Pro', monospace;
-    padding-bottom: 10px;
-}
-
-.author-note {
-	font-size: 14px;
-    // line-height: 90%;
-    // font-family: 'Source Code Pro', monospace;
-    // padding-bottom: 10px;
-}
-
-.links {
-	padding-top: 15px;
-}
-
-.links > a {
-	margin-right: 7px;
-    font-family: 'Source Code Pro', monospace;
-    background-color: var(--accent_color);
-    color: white;
-    border-radius: 50px;
-    padding: 2px 9px;
-}
-
-#research-list {
-	// display: flex;
-	// flex-direction: column;
-}
-
-
-/* intro paragraph/footer */
-
-/* two column redesign code */
-#portrait {
+	line-height: 90%;
+	font-family: "Linux Biolinum", sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	padding-bottom: 10px;
+  }
+  
+  .teaching-container {
 	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	padding-bottom: 5px;
+  }
+  
+  .research-container:last-child {
+	padding-bottom: 0px;
+  }
+  
+  .teaching-title a {
+	font-size: 20px;
+	line-height: 95%;
+	font-family: "Linux Biolinum", sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration-color: var(--accent_color);
+	  text-decoration-style: dotted;
+	  text-decoration: underline;
+  }
+  
+  .teaching-title a:hover {
+	color: var(--accent_color);
+  }
+  
+  .author-list {
+	font-family: "Linux Biolinum", sans-serif;
+	font-size: 15px;
+  }
+  
+  .author-note {
+	font-family: "Linux Biolinum", sans-serif;
+	font-size: 15px;
+  }
+  
+  .links {
+	padding-top: 15px;
+  }
+  
+  .links > a {
+	margin-right: 7px;
+	font-family: "JetBrains", monospace;
+	background-color: var(--accent_color);
+	color: white;
+	border-radius: 50px;
+	padding: 2px 9px;
+  }
+  
+  /* intro paragraph/footer */
+  /* two column redesign code */
+  #portrait {
+	width: 100%;
+	border-radius: 25px;
 	aspect-ratio: 0.75;
 	outline: none;
 	background-color: #EEE;
-}
-
-$SIDEBAR_WIDTH: 30;
-
-#sidebar {
-    position: fixed;
-    height: 100%;
-    width: $SIDEBAR_WIDTH* 1rem;
-    top: 0;
-    bottom: 0;
-    left: 0;
-}
-
-#main {
-    margin-left: $SIDEBAR_WIDTH* 1rem;
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-    margin-right: 0.25 * $SIDEBAR_WIDTH* 1rem;
-}
-
-#sidebar-box {
-    position: absolute;
-    top: 5em;
-    // top: 50%;
-    // transform: translate(0, -50%);
-    width: 65%;
-    margin-left: 25%;
-    margin-right: 10%;
-}
-
-#name {
+  }
+  
+  #sidebar {
+	position: fixed;
+	height: 100%;
+	width: 30rem;
+	top: 0;
+	bottom: 0;
+	left: 0;
+  }
+  
+  #main {
+	margin-left: 30rem;
+	margin-top: 5rem;
+	margin-bottom: 5rem;
+	margin-right: 7.5rem;
+  }
+  
+  #sidebar-box {
+	position: absolute;
+	top: 5em;
+	width: 65%;
+	margin-left: 25%;
+	margin-right: 10%;
+  }
+  
+  #name {
 	padding-top: 1rem;
 	font-size: 1.5em;
 	margin-bottom: 0.8em;
-
-}
-
-#news {
+  }
+  
+  #news {
 	background-color: rgba(var(--callout_color), 0.2);
 	border-color: rgb(var(--callout_color));
 	border-radius: 5px;
 	border-style: solid;
-
 	margin-bottom: 1em;
-	// text-align: center;
 	padding: 0.5em;
-}
-
-
-#info  h2 {
+  }
+  
+  #info h2 {
 	margin-top: 0.3em;
-	font-size: 1.1em;
+	font-size: 17px;
 	margin-bottom: 0;
-}
-
-#email {
+  }
+  
+  #email {
 	display: flex;
 	flex-direction: row;
-	align-items:flex-end;
+	align-items: flex-end;
 	gap: 0.5em;
-}
-
-
-#mail {
+  }
+  
+  #info_links {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	gap: 0.5em;
+	margin-top: 0.3em;
+  }
+  
+  #info_links > h2 > .ext_link {
+	border-bottom: 0px solid white;
+  }
+  
+  .icons_info{
+	  stroke: var(--accent_color);
+	  fill: var(--accent_color);
+  }
+  
+  .icons_info path{
+	  stroke: var(--accent_color);
+	  fill: var(--accent_color);
+  }
+  
+  .icons_info_path{
+	stroke: var(--accent_color);
+	fill: var(--accent_color);
+  }
+  
+  #info_links > h2 > .ext_link:hover {
+	  background-position: 0%;
+  }
+  
+  #mail {
 	vertical-align: baseline;
 	height: 16px;
-}
-
-#mail> * {
+  }
+  
+  #mail > * {
 	stroke: var(--accent_color);
 	stroke-width: 35px;
 	fill: none;
-}
-
-.link_arrow {
+  }
+  
+  .link_arrow {
 	stroke: var(--accent_color);
 	stroke-width: 50px;
 	fill: none;
 	height: 16px;
 	margin-left: 8px;
-}
-
-#projects > .ext_link:hover .link_arrow {
+  }
+  
+  #projects > .ext_link:hover .link_arrow {
 	stroke: black;
 	animation: blueblack 0.2s;
-}
-
-
-@keyframes blueblack {
-  from { color: var(--accent_color); }
-  to   { color: black; }
-}
-
-
-/* make homepage responsive */
-
-// switch too resizing image when it gets small (width-wise)
-@media screen and (max-width: 1000px) {
-	// .research-title {
-	// 	color: blue;
-	// }
-
-	// .research-container {
-	// 	flex-direction: column;
-	// 	gap: 10px;
-	// 	padding-bottom: 50px;
-	// }
-
+  }
+  
+  @keyframes blueblack {
+	from {
+	  color: var(--accent_color);
+	}
+	to {
+	  color: black;
+	}
+  }
+  /* make homepage responsive */
+  @media screen and (max-width: 1000px) {
 	#sidebar {
-		width: 40vw;
+	  width: 40vw;
 	}
-
 	#main {
-		margin-left: 40vw;
-		margin-right: 0.25 * 40vw;
+	  margin-left: 40vw;
+	  margin-right: 10vw;
 	}
-}
-
-// name two column when too small to show cube and name
-@media only screen and (max-width: 920px) and (min-width: 500px) {
-
+  }
+  @media only screen and (max-width: 920px) and (min-width: 500px) {
 	#name {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
+	  display: flex;
+	  flex-direction: column;
+	  align-items: flex-start;
 	}
-}
-
-// switch to one column research when small
-@media only screen and (max-width: 700px) {
- // 	.research-container {
-	// 	flex-direction: column;
-	// }
-
+  }
+  @media only screen and (max-width: 700px) {
 	.research-container {
-		flex-direction: column;
-		gap: 15px;
-		padding-bottom: 50px;
+	  flex-direction: column;
+	  gap: 15px;
+	  padding-bottom: 50px;
 	}
-
-	// .research-info {
-	// 	width: 100%;
-	// 	margin-top: 20px;
-	// }
-// 	.research-image {
-// 		height: 40vw;
-// 		width: 40vw;
-// 	}
-}
-
-
-//switch to one column for entire thing on mobile
-
-@media only screen and (max-width: 500px) {
- 	#sidebar {
-	 	position: relative;
-	    width: auto; 
-
-	    margin-left: 10vw;
-	    margin-right: 10vw;
-	    margin-top: 5vw;
-	    margin-bottom: 5vw;
-	}	
-
-	#sidebar-box {
-		display: flex;
-		flex-direction: column;
-	    height: 100%;
-	    top: auto;
-	    position: relative;
-	    width: 100%;
-
-	    margin: 0;
-	}
-
-	#portrait {
-		height: 60vw;
-		// height: 100%;
-		width: auto;
-		margin-right: 10px;
-
-		object-fit: contain;
-		object-position: left;
-		width: fit-content;
-
-	}
-
-	#main {
-		margin-left: 10vw;
-    	margin-right: 10vw;
-    	margin-top: 20px;
-	}
-
-	#name {
-		// padding-top: 0;
-	}
-
-}
-
-// switch to fixed width when too big
-// goal width is 1040
-
-@media screen and (min-width: 1350px) {
-	#main {
-	    padding-left: calc((100vw - 1040px) * 0.5 - 0.25 * 30rem);
-	    margin-right: calc((100vw - 1040px) * 0.5);
-	}
-
+  }
+  @media only screen and (max-width: 500px) {
 	#sidebar {
-    	margin-left: calc((100vw - 1040px) * 0.5 - 0.25 * 30rem);
+	  position: relative;
+	  width: auto;
+	  margin-left: 10vw;
+	  margin-right: 10vw;
+	  margin-top: 5vw;
+	  margin-bottom: 5vw;
 	}
-}
-
-// scale image when too small (height)
-
-@media only screen and (max-width: 1350px) and (min-aspect-ratio: 50/25) {
+	#sidebar-box {
+	  display: flex;
+	  flex-direction: column;
+	  height: 100%;
+	  top: auto;
+	  position: relative;
+	  width: 100%;
+	  margin: 0;
+	}
 	#portrait {
-		height: 50vh;
-		width:auto;
-		align-self: flex-end;
-
+	  height: 60vw;
+	  width: auto;
+	  margin-right: 10px;
+	  object-fit: contain;
+	  object-position: left;
+	  width: fit-content;
 	}
-}
-
-
+	#main {
+	  margin-left: 10vw;
+	  margin-right: 10vw;
+	  margin-top: 20px;
+	}
+  }
+  @media screen and (min-width: 1350px) {
+	#main {
+	  padding-left: calc((100vw - 1040px) * 0.5 - 7.5rem);
+	  margin-right: calc((100vw - 1040px) * 0.5);
+	}
+	#sidebar {
+	  margin-left: calc((100vw - 1040px) * 0.5 - 7.5rem);
+	}
+  }
+  @media only screen and (max-width: 1350px) and (min-aspect-ratio: 50/25) {
+	#portrait {
+	  height: 50vh;
+	  width: auto;
+	  align-self: flex-end;
+	}
+  }
+  
+  /*# sourceMappingURL=homeStylesheet.css.map */
