@@ -1,7 +1,7 @@
 window.addEventListener('load', function() {
 	let dataToLoad = {'data/course_data.json': 'teaching-list'}
 
-	for (const [data, container_id] of Object.entries(dataToLoad)) {
+	for (const [data, container_id] of Object.freeze(Object.entries(dataToLoad))) {
 		//gets project data from json file
 		fetch(data)
 		  .then(function(response) {

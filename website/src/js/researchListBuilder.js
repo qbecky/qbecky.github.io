@@ -1,7 +1,7 @@
 window.addEventListener('load', function() {
 	let dataToLoad = {'data/paper_data.json': 'research-list'}
 
-	for (const [data, container_id] of Object.entries(dataToLoad)) {
+	for (const [data, container_id] of Object.freeze(Object.entries(dataToLoad))) {
 		//gets project data from json file
 		fetch(data)
 		  .then(function(response) {
@@ -51,7 +51,7 @@ function processResearchJson(jsonObj, list_id) {
 		let links = document.createElement("div");
 		links.classList.add("links");
 
-		for (const [key, value] of Object.entries(paper.links)) {
+		for (const [key, value] of Object.freeze(Object.entries(paper.links))) {
 			let this_link = document.createElement("a");
 			this_link.href = value;
 			this_link.innerHTML = `<span style="white-space: nowrap">${key}</span>`;
