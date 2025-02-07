@@ -89,6 +89,15 @@
   width: calc(100vw - 15rem);
 }
 
+.nav-bar-lg-view{
+	display:inline-block;
+}
+
+.nav-bar-sm-view{
+	display:none;
+}
+ 
+
 @media screen and (min-width: 1350px) {
 	#outer_container {
 	    width: 1040px;
@@ -105,4 +114,14 @@
 	}
 }
 
+
+@media screen and (max-width: 800px) {
+	.nav-bar-lg-view{
+		display:none;
+	}
+ 
+	.nav-bar-sm-view{
+		display:inline-block;
+	}
+}
 
