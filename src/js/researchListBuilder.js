@@ -52,10 +52,13 @@ function processResearchJson(jsonObj, list_id) {
 		links.classList.add("links");
 
 		for (const [key, value] of Object.entries(paper.links)) {
- 			 let this_link = document.createElement("a");
- 			 this_link.href = value;
- 			 this_link.innerHTML = key;
- 			 links.appendChild(this_link)
+			let this_link = document.createElement("a");
+			this_link.href = value;
+			this_link.innerHTML = `<span style="white-space: nowrap">${key}</span>`;
+			let space = document.createElement("p-inline");
+			space.innerHTML = " ";
+			links.appendChild(this_link);
+			links.appendChild(space);
 		}
 		info.appendChild(links);
 
