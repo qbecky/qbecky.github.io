@@ -64,9 +64,11 @@
   font-family: "Linux Biolinum", sans-serif;
   font-style: normal;
   font-weight: normal;
-  text-decoration-color: var(--accent_color);
+  /* text-decoration-color: var(--accent_color);
   text-decoration-style: dotted;
-  text-decoration: underline;
+  text-decoration: underline dotted; */
+  border-bottom: 1px dotted var(--accent_color);
+  text-decoration: none; 
 }
 
 .teaching-title a:hover {

@@ -6,13 +6,13 @@ The code for my static personal website. Project and Publication data is read fr
 
 Gulp will auto-recompile and build the code for easy development. 
 
-The main gulp command in `gulp dev` which starts an http server. When python or sass files are changed, they are recompiled. 
+The main gulp command in `gulp dev` which starts an http server. When python or sass files are changed, they are recompiled.
 
 Running `gulp build` will build python and sass files.
 
 (Building the python files also updates the date at the bottom of the page.)
 
-IN a terminal, install `gulp` and `sass` through the `brew` commands
+In a terminal, install `gulp` and `sass` through the `brew` commands
 
 ```
 brew install gulp

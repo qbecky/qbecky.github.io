@@ -1,7 +1,8 @@
 /* nav bar */
 #nav-bar > h2 {
 	margin: 0;
-	font-size: 1em;
+	font-size: 15px;
+	font-family: "JetBrains", monospace;
 }
 
 #nav-bar > h2 > a {
