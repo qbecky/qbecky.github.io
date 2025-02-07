@@ -9,7 +9,7 @@
     "fast_forward": "../papers/kop_bending/fast_forward.mp4",
     "note": "(* denotes  equal contribution)",
     "project_name": "kop_bending",
-    "links": {  "Project Page": "paper_pages/kop_bending.html","PDF": "papers/kop_bending/kop_paper.pdf","PDF Supplemental": "papers/kop_bending/kop_supplemental.pdf", "Code": "https://www.epfl.ch/labs/gcm/research-projects/kit-of-parts/"} 
+    "links": {  "Project Page": "paper_pages/kop_bending.html","PDF": "papers/kop_bending/kop_paper.pdf","PDF Sup.": "papers/kop_bending/kop_supplemental.pdf", "Code": "https://www.epfl.ch/labs/gcm/research-projects/kit-of-parts/"} 
   },
   {"title": "Interactive Design of C-shells Using Reduced Parametric Families",
     "authors": [ "<b>Quentin Becker</b>", "Seiichi Suzuki", "Mark Pauly"],
@@ -31,7 +31,7 @@
     "fast_forward": "../papers/cshells/cshell_website_hero.mp4",
     "note": "(Best Paper Honorable Mention)",
     "project_name": "cshells",
-    "links": {  "Project Page": "paper_pages/cshells.html","PDF": "papers/cshells/cshells_paper.pdf","PDF Supplemental": "papers/cshells/supplemental.pdf", "Code": "https://github.com/EPFL-LGG/Cshells"} 
+    "links": {  "Project Page": "paper_pages/cshells.html","PDF": "papers/cshells/cshells_paper.pdf","PDF Sup.": "papers/cshells/supplemental.pdf", "Code": "https://github.com/EPFL-LGG/Cshells"} 
   },
   {"title": "On Linear Interpolation in the Latent Space of Deep Generative Models.",
     "authors": ["Mike Yan Michelis", "<b>Quentin Becker</b>"],
