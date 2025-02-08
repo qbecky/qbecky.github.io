@@ -290,13 +290,6 @@
     margin-left: calc((100vw - 1040px) * 0.5 - 7.5rem);
   }
 }
-@media only screen and (max-width: 1350px) and (min-aspect-ratio: 50/25) {
-  #portrait {
-    height: 50vh;
-    width: auto;
-    align-self: flex-end;
-  }
-}
 
 
 /*# sourceMappingURL=homeStylesheet.css.map */
