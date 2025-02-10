@@ -1,0 +1,13 @@
+[
+    {
+        "title": "Differentiable Cubic Splines",
+        "image": "miscellanea/torchcubicspline/representative_tcs.jpg",
+        "project_name": "torchcubicspline",
+        "short_description": "A differentiable interpolating cubic splines repository for PyTorch.",
+        "content_path": "miscellanea/torchcubicspline/content.html",
+        "links": {
+            "Project Page": "miscellanea_pages/torchcubicspline.html",
+            "Code": "https://github.com/qbecky/torchcubicspline"
+        }
+    }
+]
