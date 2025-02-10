@@ -33,7 +33,7 @@
     "project_name": "cshells",
     "links": {  "Project Page": "paper_pages/cshells.html","PDF": "papers/cshells/cshells_paper.pdf","PDF Sup.": "papers/cshells/supplemental.pdf", "Code": "https://github.com/EPFL-LGG/Cshells"} 
   },
-  {"title": "On Linear Interpolation in the Latent Space of Deep Generative Models.",
+  {"title": "On Linear Interpolation in the Latent Space of Deep Generative Models",
     "authors": ["Mike Yan Michelis", "<b>Quentin Becker</b>"],
     "conference": "ICLR 2021 Workshop on Geometrical and Topological Representation Learning",
     "year": 2021,

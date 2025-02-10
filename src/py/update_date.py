@@ -2,7 +2,7 @@ from datetime import datetime
 
 now = datetime.now()
 
-files = ['paper_template.html', '../../index.html', '../../publications.html']
+files = ['paper_template.html', '../../index.html', '../../publications.html', '../../miscellanea.html']
 new_contents = []
 now_str = now.strftime("%B %Y")
 update_str = "last updated"

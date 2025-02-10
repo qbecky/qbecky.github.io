@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../public/css/jetbrainsFontsStylesheet.css">
+	<link rel="stylesheet" href="../public/css/linuxFontsStylesheet.css">
+	<title>Differentiable Cubic Splines</title>
+	<link rel="stylesheet" href="../public/css/generalStylesheet.css">
+	<link rel="stylesheet" href="../public/css/projectStylesheet.css">
+	<link rel="stylesheet" href="../public/css/navbarStylesheet.css">
+	<link rel="stylesheet" href="../public/css/darkmodeStylesheet.css">
+	<script src="../src/js/darkmode.js"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Source+Code+Pro:wght@600;700&display=swap" rel="stylesheet">
+	<link rel="icon" href="../favicon.png" sizes="32x32">
+</head>
+<body>
+
+<div id="outer_container">
+	<h1 id="title">Differentiable Cubic Splines</h1>
+	<div id="links-outer">
+		<div id = "links">
+			<a href=https://github.com/qbecky/torchcubicspline><svg width=18px height=18px class="icon_links" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg> Code</a>
+		</div>
+	</div>
+	
+	In my projects, I often encounter the problem of finding curves \(\gamma:[0,1]\rightarrow\mathbb{R}^d\) that minimizes an objective functional \(J:([0,1]\rightarrow\mathbb{R}^d)\rightarrow \mathbb{R}_+\). I found parameterizing the space of curves with interpolating cubic splines to be computationally handy and sufficient for most of my needs. While Patrick Kidger's <a href="https://github.com/patrick-kidger/torchcubicspline">torchcubicspline</a> library possesses most of the features needed for optimization of open cubic splines, it lacks the ability to handle closed cubic splines. In the next parts, I will recapitulate the construction of cubic splines and discuss how to optimize them.
+
+<h2> Cubic Splines </h2>
+
+A cubic spline is a piecewise cubic polynomial that interpolates a set of \(K+1\) control points \(\mathbf{q}_0, \dots, \mathbf{q}_{K}\) at the knots \(t_0, \dots, t_{K}\). As a cubic polynomial, for any interval \([t_i, t_{i+1}]\), there exists coefficients \(\mathbf{a}_i, \mathbf{b}_i, \mathbf{c}_i, \mathbf{d}_i\) such that the restricted cubic spline \(\gamma_i:[t_i, t_{i+1}]\rightarrow\mathbb{R}^d\) is given by
+
+\[
+\gamma_i(t) = \mathbf{a}_i + \mathbf{b}_i\ \left(\frac{t-t_i}{t_{i+1}-t_i}\right) + \mathbf{c}_i\ \left(\frac{t-t_i}{t_{i+1}-t_i}\right)^2 + \mathbf{d}_i\ \left(\frac{t-t_i}{t_{i+1}-t_i}\right)^3.
+\]
+
+Relating the coefficients to the control points requires expressing continuity conditions at the knots. As an interpolating curve, we require that \(\gamma_i(t_i) = \mathbf{q}_i\) and \(\gamma_i(t_{i+1}) = \mathbf{q}_{i+1}\). Additionally, we require that the derivative of the cubic spline is continuous at the knots. All together, we have
+
+\[
+\begin{align*}
+\mathbf{a}_i &= \mathbf{q}_i, \\
+\mathbf{a}_i + \mathbf{b}_i + \mathbf{c}_i + \mathbf{d}_i &= \mathbf{q}_{i+1}, \\
+\mathbf{b}_i &= \mathbf{p}_i(t_{i+1}-t_i), \\
+\mathbf{b}_i + 2\mathbf{c}_i + 3\mathbf{d}_i &= \mathbf{p}_{i+1}(t_{i+1}-t_i),
+\end{align*}
+\]
+
+where the derivatives at the knots \(\mathbf{p}_0, \dots, \mathbf{p}_{K}\) are yet unknown. From these values one would recover the coefficients as
+
+\[
+\begin{align*}
+\mathbf{a}_i &= \mathbf{q}_i, \\
+\mathbf{b}_i &= \mathbf{p}_i(t_{i+1}-t_i), \\
+\mathbf{c}_i &= 3(\mathbf{q}_{i+1}-\mathbf{q}_i) - 2\mathbf{p}_i(t_{i+1}-t_i) - \mathbf{p}_{i+1}(t_{i+1}-t_i), \\
+\mathbf{d}_i &= 2(\mathbf{q}_i-\mathbf{q}_{i+1}) + \mathbf{p}_i(t_{i+1}-t_i) + \mathbf{p}_{i+1}(t_{i+1}-t_i).
+\end{align*}
+\]
+
+We further require the second order derivatives to be continuous at the internal knots. Computing the second order derivative \(\gamma_{i-1}''(t_i)\) and \(\gamma_i''(t_i)\) for \(i\in\{1,...,K-1\}\), we have
+
+\[
+\frac{2\mathbf{c}_{i-1} + 6\mathbf{d}_{i-1}}{(t_{i} - t_{i-1})^2} = \frac{2\mathbf{c}_i}{(t_{i+1} - t_i)^2}.
+\]
+
+Plugging the above expressions for \(\mathbf{c}_i\) and \(\mathbf{d}_i\) into the above equation, we obtain
+
+\[
+-3\frac{\mathbf{q}_{i}-\mathbf{q}_{i-1}}{(t_{i} - t_{i-1})^2} + \frac{2\mathbf{p}_{i} + \mathbf{p}_{i-1}}{t_i - t_{i-1}} = 3\frac{\mathbf{q}_{i+1}-\mathbf{q}_{i}}{(t_{i+1} - t_i)^2} - \frac{2\mathbf{p}_i + \mathbf{p}_{i+1}}{t_{i+1} - t_i},
+\]
+
+which can be rewritten as
+
+\[
+\frac{\mathbf{p}_{i-1}}{t_{i} - t_{i-1}} + 2\mathbf{p}_{i} \left(\frac{1}{t_{i} - t_{i-1}} + \frac{1}{t_{i+1} - t_i}\right) + \frac{\mathbf{p}_{i+1}}{t_{i+1} - t_i} = 3\left(\frac{\mathbf{q}_{i+1}-\mathbf{q}_{i}}{(t_{i+1} - t_i)^2} + \frac{\mathbf{q}_{i}-\mathbf{q}_{i-1}}{(t_{i} - t_{i-1})^2}\right).
+\]
+
+We now have a system of \(K-1\) equations for the \(K+1\) unknowns \(\mathbf{p}_0, \dots, \mathbf{p}_{K}\). We can solve this system by adding two more equations which provide boundary conditions. We explore two options in the next sections: Open and closed cubic splines.
+
+<h2> Open Cubic Splines </h2>
+
+In case of open curves, it is common to set the second order derivatives at the boundary knots to zero: The resulting curve is a <i>natural cubic spline</i>. We enforce \(\mathbf{c}_0=0\) and \(\mathbf{c}_{K-1}+3\mathbf{d}_{K-1}=0\), which gives
+
+\[
+2\frac{\mathbf{p}_0}{t_{1}-t_0} + \frac{\mathbf{p}_{1}}{t_{1}-t_0} = 3\frac{\mathbf{q}_{1}-\mathbf{q}_0}{(t_1 - t_0)^2}\text{ and } \frac{\mathbf{p}_{K-1}}{t_{K}-t_{K-1}} + 2\frac{\mathbf{p}_{K}}{t_{K}-t_{K-1}} = 3\frac{\mathbf{q}_{K}-\mathbf{q}_{K-1}}{(t_K - t_{K-1})^2}.
+\]
+
+The derivatives at the nodes can be computed efficiently by solving the tridiagonal system
+
+\[
+\begin{bmatrix}
+2\frac{1}{t_1-t_0} & \frac{1}{t_1-t_0} & 0 & \cdots & 0 \\
+\frac{1}{t_1-t_0} & 2\left(\frac{1}{t_1-t_0} + \frac{1}{t_2-t_1}\right) & \frac{1}{t_2-t_1} & \cdots & 0 \\
+0 & \frac{1}{t_2-t_1} & 2\left(\frac{1}{t_2-t_1} + \frac{1}{t_3-t_2}\right) & \cdots & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & 0 & \cdots & 2\frac{1}{t_K-t_{K-1}}
+\end{bmatrix}
+\begin{bmatrix}
+\mathbf{p}_0^\top \\
+\mathbf{p}_1^\top \\
+\mathbf{p}_2^\top \\
+\vdots \\
+\mathbf{p}_{K}^\top
+\end{bmatrix}
+=
+\begin{bmatrix}
+3\left(\frac{\mathbf{q}_1-\mathbf{q}_0}{(t_1 - t_0)^2}\right)^\top \\
+3\left(\frac{\mathbf{q}_2-\mathbf{q}_1}{(t_2 - t_1)^2} + \frac{\mathbf{q}_1-\mathbf{q}_0}{(t_1 - t_0)^2}\right)^\top \\
+3\left(\frac{\mathbf{q}_3-\mathbf{q}_2}{(t_3 - t_2)^2} + \frac{\mathbf{q}_2-\mathbf{q}_1}{(t_2 - t_1)^2}\right)^\top \\
+\vdots \\
+3\left(\frac{\mathbf{q}_K-\mathbf{q}_{K-1}}{(t_K - t_{K-1})^2}\right)^\top
+\end{bmatrix}.
+\]
+
+The coefficients can be computed from the derivatives as described in the previous section.
+
+<h2> Closed Cubic Splines </h2>
+
+When the curve is closed, the first and second derivatives at the boundary knots are set to be equal. This results in a <i>periodic cubic spline</i>. We connect \(\mathbf{q}_0\) and \(\mathbf{q}_K\) by a cubic polynomial \(\gamma_K\) and enforce continuity of the first and second derivatives at the boundary knots. The linear system becomes
+
+\[
+\begin{bmatrix}
+2\left(\frac{1}{t_0-t_{K}} + \frac{1}{t_1-t_0}\right) & \frac{1}{t_1-t_0} & 0 & \cdots & \frac{1}{t_0-t_{K}} \\
+\frac{1}{t_1-t_0} & 2\left(\frac{1}{t_1-t_0} + \frac{1}{t_2-t_1}\right) & \frac{1}{t_2-t_1} & \cdots & 0 \\
+0 & \frac{1}{t_2-t_1} & 2\left(\frac{1}{t_2-t_1} + \frac{1}{t_3-t_2}\right) & \cdots & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+\frac{1}{t_0-t_{K}} & 0 & 0 & \cdots & 2\left(\frac{1}{t_K-t_{K-1}}+\frac{1}{t_0-t_{K}}\right)
+\end{bmatrix}
+\begin{bmatrix}
+\mathbf{p}_0^\top \\
+\mathbf{p}_1^\top \\
+\mathbf{p}_2^\top \\
+\vdots \\
+\mathbf{p}_{K}^\top
+\end{bmatrix}
+=
+\begin{bmatrix}
+3\left(\frac{\mathbf{q}_0-\mathbf{q}_{K}}{(t_0 - t_K)^2} + \frac{\mathbf{q}_1-\mathbf{q}_0}{(t_1 - t_0)^2}\right)^\top \\
+3\left(\frac{\mathbf{q}_2-\mathbf{q}_1}{(t_2 - t_1)^2} + \frac{\mathbf{q}_1-\mathbf{q}_0}{(t_1 - t_0)^2}\right)^\top \\
+3\left(\frac{\mathbf{q}_3-\mathbf{q}_2}{(t_3 - t_2)^2} + \frac{\mathbf{q}_2-\mathbf{q}_1}{(t_2 - t_1)^2}\right)^\top \\
+\vdots \\
+3\left(\frac{\mathbf{q}_K-\mathbf{q}_{K-1}}{(t_K - t_{K-1})^2} + \frac{\mathbf{q}_0-\mathbf{q}_{K}}{(t_0 - t_K)^2}\right)^\top
+\end{bmatrix}.
+\]
+
+We present an efficient to solve the above system by transforming it to a tridiagonal system. We lighten the notations so that the above system can be written
+
+\[
+\mathbf{A}\mathbf{x} = \mathbf{y}, \text{ where } \mathbf{A} = \begin{bmatrix}
+a_0 & b_0 & 0 & \cdots & c_K \\
+c_0 & a_1 & b_1 & \cdots & 0 \\
+0 & c_1 & a_2 & \cdots & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+b_{K} & 0 & 0 & \cdots & a_{K}
+\end{bmatrix} = \begin{bmatrix}
+  &   &   &  c_K \\
+  & \mathbf{A}_{\mathrm{TD}} &  & 0 \\
+  &   &   & \vdots \\
+  b_K & 0 & \cdots & a_K
+\end{bmatrix}.
+\]
+
+We also only consider one column of the unknown matrix to ease notations and apply the same process to the others. We define the solution of the two following tridiagonal systems as
+
+\[
+\mathbf{A}_{\mathrm{TD}}\mathbf{s}_1 = \begin{bmatrix}
+y_0 \\
+y_1 \\
+\vdots \\
+y_{K-1}
+\end{bmatrix} \text{ and } \mathbf{A}_{\mathrm{TD}}\mathbf{s}_2 = \begin{bmatrix}
+-c_{K-1} \\
+0 \\
+\vdots \\
+-b_K
+\end{bmatrix}.
+\]
+
+The solution of the original system is then given by
+
+\[
+\mathbf{x} = \begin{bmatrix}
+\mathbf{s}_1 + \sigma\mathbf{s}_2\\
+\sigma
+\end{bmatrix}, \text{ where } \sigma = \frac{y_K - b_K \mathbf{s}_{1,0} - c_{K-1} \mathbf{s}_{1,K-1}}{a_K + c_K \mathbf{s}_{2,0} + b_{K-1} \mathbf{s}_{2,K-1}},
+\]
+
+and \(\mathbf{s}_{1,0}\) and \(\mathbf{s}_{1,K-1}\) are the first and last elements of \(\mathbf{s}_1\), and \(\mathbf{s}_{2,0}\) and \(\mathbf{s}_{2,K-1}\) are the first and last elements of \(\mathbf{s}_2\). The closed curve case hence involves solving one more tridiagonal system than the open curve case.
+
+<h2> Cubic Splines Optimization </h2>
+
+To illustrate the concept of curve optimization, consider the problem of finding the cubic spline that best approximates a circle or radius 1 and center the origin. Our functional can be defined for any curve \(\gamma:[0,1]\rightarrow\mathbb{R}^2\) as
+
+\[
+J[\gamma] = \int_{t=0}^1 \left(||\gamma(t)|| - 1\right)^2\mathrm{d}t.
+\]
+
+Note that a global minimum is obtained when the curve degenerates to a point on the circle. To keep the example simple, we assume our initialization to be such that the curve is attracted to a local minimum that resembles a circle. In practice one could use a symmetric Chamfer distance to ensure the curve spans the whole circle. Our goal is to find the cubic spline that minimizes the above functional
+
+\[
+\min_{\mathbf{q}_0, \dots, \mathbf{q}_{K}} J[\gamma_{\mathbf{Q}}].
+\]
+
+We discretize the integral involved in the functional and use automatic differentiation to compute the gradient of the functional with respect to the control points with PyTorch. We then use a gradient descent algorithm to optimize the control points. The optimization process is illustrated in the following video.
+
+</div>
+
+
+<p id="footer">
+Adapted from <a href="https://github.com/zoemarschner/zoemarschner.com" class="ext_link">Zoë Marschner's website</a> / last updated February 2025</p>
+
+		<div id="nav-bar"> 
+		<h2> <a href="/" id="home_link"> <svg id="home_icon" viewbox="0 0 50 45">
+				<polyline class="st0" points="49,26.12 25,2.98 1,26.12 "/>
+				<path class="st0" d="M7.96,19.61v22.25h10.59c0-11.61,2.96-15.74,6.61-15.74s6.61,4.13,6.61,15.74h10.28V19.61"/>
+			</svg> 
+			Home</a>
+		</h2>
+		<h2>/</h2>
+		<h2><a href="/miscellanea.html">  Miscellanea </a></h2>
+		<h2>/</h2>
+		<h2 class="nav-bar-lg-view">Differentiable Cubic Splines</h2>
+		<h2 class="nav-bar-sm-view">.</h2>
+	</div>
+</body>
+</html>
