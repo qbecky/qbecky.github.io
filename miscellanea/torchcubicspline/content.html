@@ -1,4 +1,4 @@
-In my projects, I often encounter the problem of finding curves \(\gamma:[0,1]\rightarrow\mathbb{R}^d\) that minimizes an objective functional \(J:([0,1]\rightarrow\mathbb{R}^d)\rightarrow \mathbb{R}_+\). I found parameterizing the space of curves with interpolating cubic splines to be computationally handy and sufficient for most of my needs. While Patrick Kidger's <a href="https://github.com/patrick-kidger/torchcubicspline">torchcubicspline</a> library possesses most of the features needed for optimization of open cubic splines, it lacks the ability to handle closed cubic splines. In the next parts, I will recapitulate the construction of cubic splines and discuss how to optimize them.
+In my projects, I often encounter the problem of finding curves \(\gamma:[0,1]\rightarrow\mathbb{R}^d\) that minimizes an objective functional \(J:([0,1]\rightarrow\mathbb{R}^d)\rightarrow \mathbb{R}_+\). I found parameterizing the space of curves with interpolating cubic splines to be computationally handy and sufficient for most of my needs. While Patrick Kidger's <a href="https://github.com/patrick-kidger/torchcubicspline" class="ext_link">torchcubicspline</a> library possesses most of the features needed for optimization of open cubic splines, it lacks the ability to handle closed cubic splines. In the next parts, I will recapitulate the construction of cubic splines and discuss how to optimize them.
 
 <h2> Cubic Splines </h2>
 
@@ -174,7 +174,7 @@ Note that a global minimum is obtained when the curve degenerates to a point on 
 \min_{\mathbf{q}_0, \dots, \mathbf{q}_{K}} J[\gamma_{\mathbf{Q}}].
 \]
 
-We discretize the integral involved in the functional and use automatic differentiation to compute the gradient of the functional with respect to the control points with PyTorch. We then use a first-order minimization algorithm (here BFGS as implemented in <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html">scipy</a>) to optimize the control points. The optimization process is illustrated in the following video.
+We discretize the integral involved in the functional and use automatic differentiation to compute the gradient of the functional with respect to the control points with PyTorch. We then use a first-order minimization algorithm (here BFGS as implemented in <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html" class="ext_link">scipy</a>) to optimize the control points. The optimization process is illustrated in the following video where the control points are indicated in red, the current cubic spline is in blue, and the target circle is represented with dashed lines.
 
 <center>
 <video controls width="30%">
