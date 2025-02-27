@@ -174,7 +174,7 @@ Note that a global minimum is obtained when the curve degenerates to a point on 
 \min_{\mathbf{q}_0, \dots, \mathbf{q}_{K}} J[\gamma_{\mathbf{Q}}].
 \]
 
-We discretize the integral involved in the functional and use automatic differentiation to compute the gradient of the functional with respect to the control points with PyTorch. We then use a first-order minimization algorithm (here BFGS as implemented in <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html" class="ext_link">scipy</a>) to optimize the control points. The optimization process is illustrated in the following video where the control points are indicated in red, the current cubic spline is in blue, and the target circle is represented with dashed lines.
+We discretize the integral involved in the functional and use automatic differentiation to compute the gradient of the functional with respect to the control points with PyTorch. We use a first-order minimization algorithm (BFGS as implemented in <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html" class="ext_link">scipy</a>) to optimize the control points. The optimization process is illustrated in the following video where the control points are indicated in red, the cubic spline is in blue, and the target circle is represented with dashed lines.
 
 <center>
 <video controls width="30%">
