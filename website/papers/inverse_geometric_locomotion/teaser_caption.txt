@@ -1,0 +1,1 @@
+Our inverse geometric locomotion optimization enables the discovery of, <em>e.g.</em>, optimal snake undulation patterns for efficient slithering locomotion from a starting position (<em>red flag</em>), passing through landmarks (<em>yellow flags</em>), and reaching a prescribed target position (<em>checkered flag</em>), all while avoiding obstacles.

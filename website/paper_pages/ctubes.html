@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../public/css/jetbrainsFontsStylesheet.css">
+	<link rel="stylesheet" href="../public/css/linuxFontsStylesheet.css">
+	<title>C-Tubes: Design and Optimization of Tubular Structures Composed of Developable Strips</title>
+	<link rel="stylesheet" href="../public/css/generalStylesheet.css">
+	<link rel="stylesheet" href="../public/css/projectStylesheet.css">
+	<link rel="stylesheet" href="../public/css/navbarStylesheet.css">
+	<link rel="stylesheet" href="../public/css/darkmodeStylesheet.css">
+	<script src="../src/js/darkmode.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Source+Code+Pro:wght@600;700&display=swap" rel="stylesheet">
+	<link rel="icon" href="../favicon.png" sizes="32x32">
+</head>
+<body>
+
+<div id="outer_container">
+	<h1 id="title">C-Tubes: Design and Optimization of Tubular Structures Composed of Developable Strips</h1>
+	<div id="authors">
+		<p><a href=https://people.epfl.ch/michele.vidulis>Michele Vidulis*</a>, <span>EPFL, Switzerland</span></p><p><a href=https://klaramundilova.com/>Klara Mundilova*</a>, <span>EPFL, Switzerland</span></p><p><a href=https://people.epfl.ch/quentin.becker><b>Quentin Becker*</b></a>, <span>EPFL, Switzerland</span></p><p><a href=https://people.epfl.ch/florin.isvoranu>Florin Isvoranu</a>, <span>EPFL, Switzerland</span></p><p><a href=https://people.epfl.ch/mark.pauly>Mark Pauly</a>, <span>EPFL, Switzerland</span></p><br><p><span><i>ACM Transactions on Graphics (SIGGRAPH)</i>, 2025</span></p><p><span>(* denotes  equal contribution)</span></p><br>
+	</div>
+	<div id="links-outer">
+		<div id = "links">
+			<a href=../papers/ctubes/main.pdf><svg width=18px height=18px class="icon_links" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 128 128">    <path d="M 33.5 9 C 26.3 9 20.5 14.8 20.5 22 L 20.5 102 C 20.5 109.2 26.3 115 33.5 115 L 94.5 115 C 101.7 115 107.5 109.2 107.5 102 L 107.5 22 C 107.5 14.8 101.7 9 94.5 9 L 33.5 9 z M 33.5 15 L 94.5 15 C 98.4 15 101.5 18.1 101.5 22 L 101.5 102 C 101.5 105.9 98.4 109 94.5 109 L 33.5 109 C 29.6 109 26.5 105.9 26.5 102 L 26.5 22 C 26.5 18.1 29.6 15 33.5 15 z M 33.5 22 L 33.5 37 L 94.5 37 L 94.5 22 L 33.5 22 z M 37.5 51 C 35.8 51 34.5 52.3 34.5 54 C 34.5 55.7 35.8 57 37.5 57 L 88.5 57 C 90.2 57 91.5 55.7 91.5 54 C 91.5 52.3 90.2 51 88.5 51 L 37.5 51 z M 37.5 66 C 35.8 66 34.5 67.3 34.5 69 C 34.5 70.7 35.8 72 37.5 72 L 88.5 72 C 90.2 72 91.5 70.7 91.5 69 C 91.5 67.3 90.2 66 88.5 66 L 37.5 66 z M 37.5 81 C 35.8 81 34.5 82.3 34.5 84 C 34.5 85.7 35.8 87 37.5 87 L 64 87 C 65.7 87 67 85.7 67 84 C 67 82.3 65.7 81 64 81 L 37.5 81 z"/></svg> PDF</a><p>•</p><a href=https://www.epfl.ch/labs/gcm/research-projects/kit-of-parts/><svg width=18px height=18px class="icon_links" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg> Code</a>
+		</div>
+	</div>
+	<img id="teaser" src="../papers/ctubes/trefoil_lamp.jpg"/>
+	<p id="caption"> A trefoil lamp assembled from developable surface strips. This C-tube has been optimized to perfectly align the triangular profiles at the start and end point of the input trefoil curve in a way that results in a single developable surface strip for the whole model. This strip is cut into segments for fabrication as shown on the left. The photos show the physical model with an interior light from different viewpoints. </p>
+	<h2> Abstract </h2>
+	<p> We introduce C-tubes, 3D tubular structures composed of developable surface strips. C-tubes can be understood as a generalization of Monge surfaces—a special class of sweep surfaces—towards the recently introduced cone-nets. This observation allows formulating a constructive algorithm to create tubular structures that ensures developability of the constituent surfaces, while significantly broadening the design space. Our novel form-finding tool enables design exploration by solving for the input variables of the constructive algorithm so that the C-tube best conforms to user-specified objectives. We discuss several case studies that illustrate the versatility of our approach for the design and fabrication of complex structures, with applications in architecture, furniture, and lighting design. </p>
+
+	
+
+	<h2 id="cite-us">Cite Us</h2>
+	<pre><code> @article{10.1145/3730933,
+    author = "Vidulis, Michele and Mundilova, Klara and Becker, Quentin and Isvoranu, Florin and Pauly, Mark",
+    title = "Inverse Geometric Locomotion",
+    year = "2025",
+    issue_date = "August 2025",
+    publisher = "Association for Computing Machinery",
+    address = "New York, NY, USA",
+    volume = "44",
+    number = "4",
+    url = "https://doi.org/10.1145/3730933",
+    doi = "10.1145/3730933",
+    journal = "ACM Trans. Graph.",
+    month = "August",
+    numpages = "17"
+}
+ </code></pre>
+
+</div>
+
+
+<p id="footer">
+Adapted from <a href="https://github.com/zoemarschner/zoemarschner.com" class="ext_link">Zoë Marschner's website</a> / last updated February 2025</p>
+
+		<div id="nav-bar"> 
+		<h2> <a href="/" id="home_link"> <svg id="home_icon" viewbox="0 0 50 45">
+				<polyline class="st0" points="49,26.12 25,2.98 1,26.12 "/>
+				<path class="st0" d="M7.96,19.61v22.25h10.59c0-11.61,2.96-15.74,6.61-15.74s6.61,4.13,6.61,15.74h10.28V19.61"/>
+			</svg> 
+			Home</a>
+		</h2>
+		<h2>/</h2>
+		<h2><a href="/publications.html">  Publications </a></h2>
+		<h2>/</h2>
+		<h2 class="nav-bar-lg-view">C-Tubes: Design and Optimization of Tubular Structures Composed of Developable Strips</h2>
+		<h2 class="nav-bar-sm-view">.</h2>
+	</div>
+</body>
+</html>
