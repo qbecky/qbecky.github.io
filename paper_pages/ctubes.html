@@ -13,6 +13,8 @@
 	<script src="../src/js/darkmode.js"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Source+Code+Pro:wght@600;700&display=swap" rel="stylesheet">
 	<link rel="icon" href="../favicon.png" sizes="32x32">
+	<!-- <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script> -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/OBJLoader.js"></script> -->
 </head>
 <body>
 
@@ -31,7 +33,48 @@
 	<h2> Abstract </h2>
 	<p> We introduce C-tubes, 3D tubular structures composed of developable surface strips. C-tubes can be understood as a generalization of Monge surfaces—a special class of sweep surfaces—towards the recently introduced cone-nets. This observation allows formulating a constructive algorithm to create tubular structures that ensures developability of the constituent surfaces, while significantly broadening the design space. Our novel form-finding tool enables design exploration by solving for the input variables of the constructive algorithm so that the C-tube best conforms to user-specified objectives. We discuss several case studies that illustrate the versatility of our approach for the design and fabrication of complex structures, with applications in architecture, furniture, and lighting design. </p>
 
-	
+	<h2 id="3d_models">3D Models</h2>
+
+	<p> The 3D models shown below all refer to experiments presented in the paper. </p>
+	<br>
+
+	<p style="display: flex; justify-content: center;">
+		<div class="scenes-row">
+			<div class="scene-container" id="trefoil-viewer">
+				<div class="scene-title" id="caption">Trefoil (figure 9)</div>
+			</div>
+			<div class="scene-container" id="nonplanar-viewer">
+				<div class="scene-title" id="caption">Generatrix planarity (figure 10)</div>
+			</div>
+			<div class="scene-container" id="scaling-viewer">
+				<div class="scene-title" id="caption">Scaling (figure 11)</div>
+			</div>
+			<div class="scene-container" id="torus-viewer">
+				<div class="scene-title" id="caption">Torus (figure 12)</div>
+			</div>
+			<div class="scene-container" id="klein-viewer">
+				<div class="scene-title" id="caption">Klein bottle (figure 14)</div>
+			</div>
+			<div class="scene-container" id="chair-viewer">
+				<div class="scene-title" id="caption">Chair (figure 15)</div>
+			</div>
+			<div class="scene-container" id="bridges-viewer">
+				<div class="scene-title" id="caption">Bridges (figure 16)</div>
+			</div>
+		</div>
+		<script type="module" src="ctubes_scripts/trefoil_render.js"></script>
+		<script type="module" src="ctubes_scripts/nonplanar_render.js"></script>
+		<script type="module" src="ctubes_scripts/scaling_render.js"></script>
+		<script type="module" src="ctubes_scripts/torus_comparison_render.js"></script>
+		<script type="module" src="ctubes_scripts/klein_render.js"></script>
+		<script type="module" src="ctubes_scripts/chair_optimization_render.js"></script>
+		<script type="module" src="ctubes_scripts/bridges_render.js"></script>
+	</p>
+
+	<h2 id="sup_video">Supplementary Video</h2>
+	<p style="display: flex; justify-content: center;">
+	<iframe id="kmsembed-0_m2oeverc" style="aspect-ratio: 16 / 9; width: 100% !important;" src="https://mediaspace.epfl.ch/embed/secure/iframe/entryId/0_m2oeverc/uiConfId/23448972/st/0" class="kmsembed" webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="C-Tubes Supplemental Video"></iframe>
+	</p>
 
 	<h2 id="cite-us">Cite Us</h2>
 	<pre><code> @article{10.1145/3730933,
