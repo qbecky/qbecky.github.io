@@ -6,7 +6,7 @@ The code for my static personal website. Project and Publication data is read fr
 
 Gulp will auto-recompile and build the code for easy development. 
 
-The main gulp command in `gulp dev` which starts an http server. When python or sass files are changed, they are recompiled.
+The main gulp command in `gulp dev` which starts an http server. When python or sass files are changed, they are recompiled. Note that you may need to run `npm install` the first time you run the gulp command.
 
 Running `gulp build` will build python and sass files.
 

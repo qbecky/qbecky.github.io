@@ -17,7 +17,7 @@
     "image": "papers/ctubes/ctubes_square.jpg",
     "teaser_image": "../papers/ctubes/trefoil_lamp.jpg",
     "teaser_caption": "papers/ctubes/teaser_caption.txt",
-    "note": "(* denotes  equal contribution)",
+    "note": "(* denotes  equal contribution, Best Paper Honorable Mention)",
     "project_name": "ctubes",
     "links": {  "Project Page": "paper_pages/ctubes.html","PDF": "papers/ctubes/main.pdf", "Code": "https://go.epfl.ch/c-tubes"} 
   },
