@@ -1,4 +1,14 @@
 [
+  {"title": "CNets: An Interactive Design Framework for Cone-Nets",
+    "authors": ["Klara Mundilova", "Michele Vidulis", "<b>Quentin Becker</b>", "Florin Isvoranu", "Mark Pauly"],
+    "conference": "Advances in Architectural Geometry (AAG)",
+    "year": 2025,
+    "image": "papers/cnets_aag/representative_square.jpg",
+    "teaser_image": "../papers/cnets_aag/representative_aag.png",
+    "teaser_caption": "papers/cnets_aag/teaser_caption.txt",
+    "project_name": "cnets_aag",
+    "links": {  "Project Page": "paper_pages/cnets_aag.html","PDF": "papers/cnets_aag/cnets_paper.pdf", "Code": "https://go.epfl.ch/c-tubes"} 
+  },
   {"title": "Inverse Geometric Locomotion",
     "authors": [ "<b>Quentin Becker*</b>", "Oliver Gross*", "Mark Pauly"],
     "conference": "ACM Transactions on Graphics (SIGGRAPH)",
