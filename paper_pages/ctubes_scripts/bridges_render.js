@@ -27,7 +27,7 @@ renderer.setAnimationLoop(animate);
 container.appendChild(renderer.domElement);
 
 // Add some light sources
-const light = new THREE.DirectionalLight(0xffffff, 3.0);
+const light = new THREE.DirectionalLight(0xffffff, 1.5);
 light.position.set(1, 1, 1); // updated later
 light.castShadow = true;
 light.shadow.mapSize.width = 1*1024;
@@ -38,10 +38,10 @@ light.shadow.blurSamples = 32;
 light.shadow.bias = -0.0001;
 scene.add(light);
 
-const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 1.2); // Sky color, ground color, intensity
+const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.1); // Sky color, ground color, intensity
 scene.add(hemiLight);
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
 scene.add(ambientLight);
 
 // Add a ground
@@ -56,7 +56,7 @@ scene.add(ground);
 
 // Object material
 const objectMaterial = new THREE.MeshPhysicalMaterial({
-    color: 0x049ef4,
+    color: 0x3b83db,
     side: THREE.DoubleSide,
     wireframe: false,
     flatShading: false,
@@ -74,7 +74,7 @@ const modelPaths = [
 ];
 const modelColors = [
     0xF0BE78,
-    0x049ef4,
+    0x3b83db,
 ];
 const objectMaterial1 = objectMaterial.clone();
 objectMaterial1.color.set(modelColors[0]);
@@ -92,7 +92,7 @@ function loadModel(modelPath, objectMaterial, offsetX=0, offsetY=0, setCamera=tr
             const box = new THREE.Box3().setFromObject(object);
     
             // make the object flush with the ground
-            object.position.z = -box.min.z;
+            object.position.z = object.position.z - box.min.z;
             box.setFromObject(object);
             object.position.x = offsetX;
             object.position.y = offsetY;
