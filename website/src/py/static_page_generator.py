@@ -4,7 +4,7 @@ In a terminal, with the conda environment turned on, run the following command l
 
 python static_page_generator.py
 python static_page_generator.py --erase_existing
-python static_page_generator.py --projects kop_bending --erase_existing
+python static_page_generator.py --projects cnets_aag --erase_existing
 python static_page_generator.py --projects all --erase_existing
 """
 
