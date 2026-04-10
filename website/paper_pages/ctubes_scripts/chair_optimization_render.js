@@ -27,21 +27,21 @@ renderer.setAnimationLoop(animate);
 container.appendChild(renderer.domElement);
 
 // Add some light sources
-const light = new THREE.DirectionalLight(0xffffff, 2.5);
+const light = new THREE.DirectionalLight(0xffffff, 1.5);
 light.position.set(1, 1, 1); // updated later
 light.castShadow = true;
 light.shadow.mapSize.width = 1*1024;
 light.shadow.mapSize.height = 1*1024;
-light.shadow.intensity = 0.7;
+light.shadow.intensity = 0.3;
 light.shadow.radius = 50.0;
 light.shadow.blurSamples = 32;
 light.shadow.bias = -0.0001;
 scene.add(light);
 
-const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 1.2); // Sky color, ground color, intensity
+const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.1); // Sky color, ground color, intensity
 scene.add(hemiLight);
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
 scene.add(ambientLight);
 
 // Add a ground
@@ -56,7 +56,7 @@ scene.add(ground);
 
 // Object material
 const objectMaterial = new THREE.MeshPhysicalMaterial({
-    color: 0x049ef4,
+    color: 0x3b83db,
     side: THREE.DoubleSide,
     wireframe: false,
     flatShading: false,
@@ -72,7 +72,7 @@ const modelPaths = [
     '../papers/ctubes/models/chair_optimization/chair_opt.obj',
 ];
 const modelColors = [
-    0x049ef4,
+    0x3b83db,
 ];
 objectMaterial.color.set(modelColors[0]);
 objectMaterial.needsUpdate = true;
@@ -140,7 +140,6 @@ function frameArea(sizeToFitOnScreen, boxSize, boxCenter, camera) {
     // from the center of the box
     const direction = (new THREE.Vector3()).subVectors(camera.position, boxCenter).normalize();
     const offsetCamera = (new THREE.Vector3()).copy(direction).multiplyScalar(distance).add(boxCenter);
-    const offsetLight = (new THREE.Vector3()).copy(direction).multiplyScalar(0.4 * distance).add(boxCenter);
    
     // move the camera to a position distance units way from the center
     // in whatever direction the camera was from the center already
@@ -157,16 +156,12 @@ function frameArea(sizeToFitOnScreen, boxSize, boxCenter, camera) {
     camera.lookAt(boxCenter.x, boxCenter.y, boxCenter.z);
 
     // update the light direction to point to the center of the box
-    light.position.copy(offsetLight);
+    light.position.copy(offsetCamera);
     light.target.position.copy(boxCenter);
-    light.left = - 0.5 * boxSize;
-    light.right = 0.5 * boxSize;
-    light.top = 0.5 * boxSize;
-    light.bottom = - 0.5 * boxSize;
 
     // same for the shadow camera
     const extFactor = 1.0;
-    light.shadow.camera.position.copy(offsetLight);
+    light.shadow.camera.position.copy(offsetCamera);
     light.shadow.camera.lookAt(boxCenter.x, boxCenter.y, boxCenter.z);
     light.shadow.camera.near = boxSize / 100;
     light.shadow.camera.far = boxSize * 4;

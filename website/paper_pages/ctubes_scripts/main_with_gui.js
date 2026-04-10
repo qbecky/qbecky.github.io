@@ -23,23 +23,22 @@ renderer.setSize( width, height );
 renderer.setAnimationLoop( animate );
 container.appendChild(renderer.domElement);
 
-// Add some light
-const light = new THREE.DirectionalLight(0xffffff, 2.5);
+// Add some light sources
+const light = new THREE.DirectionalLight(0xffffff, 1.5);
 light.position.set(1, 1, 1); // updated later
 light.castShadow = true;
 light.shadow.mapSize.width = 1*1024;
 light.shadow.mapSize.height = 1*1024;
-light.shadow.intensity = 0.4;
-light.shadow.radius = 100.0;
+light.shadow.intensity = 0.3;
+light.shadow.radius = 50.0;
 light.shadow.blurSamples = 32;
 light.shadow.bias = -0.0001;
 scene.add(light);
 
-// Hemisphere light for bright ambient fill
-const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 1.2); // Sky color, ground color, intensity
+const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.1); // Sky color, ground color, intensity
 scene.add(hemiLight);
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
 scene.add(ambientLight);
 
 // Add a ground
@@ -54,7 +53,7 @@ scene.add(ground);
 
 // Object material
 const objectMaterial = new THREE.MeshPhysicalMaterial({
-    color: 0x049ef4,
+    color: 0x3b83db,
     side: THREE.DoubleSide,
     wireframe: false,
     flatShading: false,
@@ -78,7 +77,7 @@ loader.load(
         const box = new THREE.Box3().setFromObject(object);
 
         // make the object flush with the ground
-        object.position.z = -box.min.z;
+        object.position.z = object.position.z - box.min.z;
 
         // flip the normals of the mesh
         object.traverse(function (child) {
