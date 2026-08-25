@@ -1,14 +1,26 @@
 [
     {
+        "title": "Elastic Rod Assemblies: From Geometric Principles to Physics-Based Design Optimization",
+        "terms": "Summer 2026",
+        "link": "https://geo-dfab.compute.dtu.dk/",
+        "venue": "Geometry for Digital Fabrication and Architecture, DTU"
+    },
+    {
+        "title": "Motion Planning for Broken Snake Robots",
+        "terms": "Summer 2025",
+        "link": "https://summergeometry.org/sgi2025/how-do-broken-snake-robots-move/",
+        "venue": "Summer Geometry Initiative, MIT"
+    },
+    {
         "title": "Geometric Computing",
         "terms": "Fall 2021, Fall 2023",
         "link": "https://edu.epfl.ch/coursebook/en/geometric-computing-CS-457",
         "venue": "EPFL"
     },
     {
-        "title": "Introduction to Computer Graphics",
+        "title": "Computer Graphics",
         "terms": "Spring 2020, Spring 2021",
-        "link": "https://staging-edu.epfl.ch/coursebook/en/computer-graphics-CS-341",
+        "link": "https://edu.epfl.ch/coursebook/en/computer-graphics-CS-341",
         "venue": "EPFL"
     },
     {
@@ -32,7 +44,7 @@
     {
         "title": "Introductory Physics",
         "terms": "Fall 2017, Spring 2017",
-        "link": "https://guide.berkeley.edu/courses/physics/",
+        "link": "https://undergraduate.catalog.berkeley.edu/courses/1184951/overview-aoYks",
         "venue": "University of California, Berkeley"
     }
 ]
