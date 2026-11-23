@@ -1,4 +1,4 @@
-window.addEventListener('load', function init() {
+window.addEventListener('DOMContentLoaded', function init() {
 	fetch('public/img/spotlight_pictures/manifest.json')
 	  .then(function(response) {
 	    return response.json();
