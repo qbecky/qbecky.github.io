@@ -8,6 +8,7 @@ python static_misc_page_generator.py --projects kop_bending --erase_existing
 python static_misc_page_generator.py --projects all --erase_existing
 """
 
+import html
 import os
 import sys as _sys
 
@@ -71,7 +72,8 @@ def main(_):
 
 		pageTitle = project["project_name"]
 		relLink = os.path.join(PATH_TO_MISC_PAGES, pageTitle + '.html')
-		project["page_link"] = relLink
+		# path relative to the website root (an absolute path would publish the local folder layout)
+		project["page_link"] = os.path.relpath(relLink, PATH_TO_WEB)
 
 		resetAll = FLAGS.projects and FLAGS.projects[0] == "all"
 
@@ -88,6 +90,9 @@ def main(_):
 		#set tile for page & heading
 		thisTemplate = replaceString("$PAGE_TITLE", project["title"], thisTemplate)
 		thisTemplate = replaceString("$TITLE", project["title"], thisTemplate)
+
+		#meta description (plain text, escaped for use inside an attribute)
+		thisTemplate = replaceString("$META_DESCRIPTION", html.escape(project["short_description"], quote=True), thisTemplate)
 
 		#format the links
 		textLinks = []
