@@ -35,6 +35,20 @@ p {
 	margin-top: 0em; 
 }
 
+/* miscellanea pages: text written directly in the page, outside <p> (same face and size as paper pages) */
+#misc_content {
+	font-family: 'Linux Libertine', serif;
+	font-size: 17px;
+	line-height: 1.2;
+}
+
+/* a display equation wider than the page scrolls on its own instead of widening the whole page */
+mjx-container[display="true"] {
+	overflow-x: auto;
+	overflow-y: hidden;
+	max-width: 100%;
+}
+
 #links {
 	display: flex;
     align-items: center;     /* Center items vertically */

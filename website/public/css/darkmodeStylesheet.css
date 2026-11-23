@@ -10,6 +10,36 @@ body {
 	background-color: rgb(32, 33, 36);
 }
 
+/* text on the orange pills is dark: white on this orange is only 3:1 */
+#nav-bar, #nav-bar > h2, #nav-bar > h2 > a,
+.links > a, .links > a * {
+	color: rgb(32, 33, 36);
+}
+
+#home_icon {
+	stroke: rgb(32, 33, 36);
+}
+
+#nav-bar > h2 > a:hover {
+	animation: d2w 0.2s;
+	color: white;
+}
+
+#home_link:hover #home_icon {
+	animation: d2w_stroke 0.2s;
+	stroke: white;
+}
+
+@keyframes d2w {
+  from { color: rgb(32, 33, 36); }
+  to   { color: white; }
+}
+
+@keyframes d2w_stroke {
+  from { stroke: rgb(32, 33, 36); }
+  to   { stroke: white; }
+}
+
 #projects > .ext_link:hover .link_arrow {
 	stroke: white;
 	animation: bluewhite 0.2s;

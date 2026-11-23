@@ -50,7 +50,9 @@ and then run the above command again. [This is probably not the best way to fix 
 In order to add a paper from a list of publications, you must:
 - Add an entry to `data/paper_data.json` following the existing entries. The paths must be given relative to the position of `index.html` or `paper_pages/` depending on the field.
 - Add the associated material in a new folder in `papers/` with the same name as the one given in `data/paper_data.json` in the field `"project_name"`.
+- Optionally add page-specific material to that folder: `extra_content.html` holds sections placed between the abstract and the citation (3D viewers, videos, ...), and `extra_head.html` holds tags added at the end of `<head>` (an importmap, a script, ...). Paths inside these files are relative to `paper_pages/`.
 - Run `public/src/py/static_page_generator.py` with the conda environment activated `conda activate web_env`. Be careful with the flag `--erase existing` and specify the list of project pages you would like to update.
+- Do not edit the pages in `paper_pages/` by hand: `--erase_existing` regenerates them from the template and the paper's folder, and anything written directly in a page is lost.
 
 ## Adding a page
 

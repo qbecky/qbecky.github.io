@@ -3,6 +3,14 @@
 	margin: 0;
 	font-size: 15px;
 	font-family: "JetBrains", monospace;
+	white-space: nowrap;
+}
+
+/* a long page title is cut with an ellipsis instead of wrapping the pill onto two lines */
+#nav-bar > h2.nav-bar-lg-view {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 #nav-bar > h2 > a {
@@ -39,6 +47,8 @@
 	color: white;
 	padding: 3px 10px;
 	border-radius: 15px;
+	max-width: calc(100vw - 20px);
+	box-sizing: border-box;
 
 	display: flex;
 	gap: 5px;
