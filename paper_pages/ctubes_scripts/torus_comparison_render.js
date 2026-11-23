@@ -17,6 +17,13 @@ camera.up.set(0, 0, 1);
 camera.position.set(0, 5, 5); // position will be updated later
 camera.lookAt(0, 0, 0); // will look at the center of the object
 
+// Render on demand: a frame is drawn only after something changed (camera, model, size),
+// instead of redrawing the scene and its shadow map on every animation frame.
+let needsRender = true;
+function requestRender() {
+    needsRender = true;
+}
+
 const renderer = new THREE.WebGLRenderer({
     antialias: true,
 });
@@ -25,6 +32,7 @@ renderer.shadowMap.type = THREE.VSMShadowMap; // default THREE.PCFShadowMap, THR
 renderer.setSize(width, height);
 renderer.setAnimationLoop(animate);
 container.appendChild(renderer.domElement);
+renderer.domElement.addEventListener('webglcontextrestored', requestRender);
 
 // Add some light sources
 const light = new THREE.DirectionalLight(0xffffff, 1.5);
@@ -104,6 +112,7 @@ function loadModel(modelPath) {
                 }
             });
             scene.add(object);
+            requestRender();
             
             const boxSize = box.getSize(new THREE.Vector3()).length();
             const boxCenter = box.getCenter(new THREE.Vector3());
@@ -126,12 +135,20 @@ function resizeRendererToDisplaySize(renderer, container) {
     const canvas = renderer.domElement;
     if (canvas.width !== width || canvas.height !== height) {
       renderer.setSize(width, height, false);
+      return true;
     }
+    return false;
   }
 
 function animate() {
-    resizeRendererToDisplaySize(renderer, container);
-	renderer.render(scene, camera);
+    if (resizeRendererToDisplaySize(renderer, container)) {
+        needsRender = true;
+    }
+    if (!needsRender) {
+        return;
+    }
+    needsRender = false;
+    renderer.render(scene, camera);
 }
 
 function frameArea(sizeToFitOnScreen, boxSize, boxCenter, camera) {
@@ -183,6 +200,7 @@ controls.screenSpacePanning = false;
 controls.maxPolarAngle = 0.95 * Math.PI / 2;
 controls.target.set(0, 0, 0);
 controls.update();
+controls.addEventListener('change', requestRender);
 
 // GUI setup
 const gui = new GUI({autoPlace: false, width: 115});
@@ -215,6 +233,7 @@ modelNameController.onChange((value) => {
     });
 
     loadModel(modelPaths[value]);
+    requestRender();
     objectMaterial.color.set(modelColors[value]);
     objectMaterial.needsUpdate = true;
 });
@@ -227,4 +246,5 @@ window.addEventListener('resize', () => {
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
     renderer.setSize(width, height, true);
+    requestRender();
 });

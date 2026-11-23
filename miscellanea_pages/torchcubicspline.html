@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="../public/css/navbarStylesheet.css">
 	<link rel="stylesheet" href="../public/css/darkmodeStylesheet.css">
 	<script src="../src/js/darkmode.js"></script>
-	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6/1Nxveei" crossorigin="anonymous"></script>
 	<link rel="icon" href="../favicon.png" sizes="32x32">
 </head>
 <body>
@@ -25,6 +25,7 @@
 		</div>
 	</div>
 	
+	<div id="misc_content">
 	In my projects, I often encounter the problem of finding curves \(\gamma:[0,1]\rightarrow\mathbb{R}^d\) that minimizes an objective functional \(J:([0,1]\rightarrow\mathbb{R}^d)\rightarrow \mathbb{R}_+\). I found parameterizing the space of curves with interpolating cubic splines to be computationally handy and sufficient for most of my needs. While Patrick Kidger's <a href="https://github.com/patrick-kidger/torchcubicspline" class="ext_link">torchcubicspline</a> library possesses most of the features needed for optimization of open cubic splines, it lacks the ability to handle closed cubic splines. In the next parts, I will recapitulate the construction of cubic splines and discuss how to optimize them.
 
 <h2> Cubic Splines </h2>
@@ -209,6 +210,7 @@ We discretize the integral involved in the functional and use automatic differen
 </video>
 </center>
 
+	</div>
 
 </div>
 

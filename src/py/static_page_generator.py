@@ -6,6 +6,11 @@ python static_page_generator.py
 python static_page_generator.py --erase_existing
 python static_page_generator.py --projects cnets_aag --erase_existing
 python static_page_generator.py --projects all --erase_existing
+
+A paper folder (papers/<project_name>/) may hold two optional files that are copied into its page:
+- extra_content.html: sections placed between the abstract and the citation (3D viewers, videos, ...)
+- extra_head.html: tags added at the end of <head> (an importmap, a script, ...)
+Paths inside these files are relative to paper_pages/.
 """
 
 import html
@@ -59,6 +64,14 @@ def fetch_svg_icon_text(link_name, width, height):
 	split_icon_text = icon_text.split("<svg")
 	new_icon_text = split_icon_text[0] + f'<svg width={width}px height={height}px class="icon_links"' + split_icon_text[1]
 	return new_icon_text
+
+# returns the content of an optional file of the paper's folder ('' if the paper does not have it)
+def read_optional_file(project_name, file_name):
+	path = os.path.join(PATH_TO_PAPER_FOLDER, project_name, file_name)
+	if not os.path.exists(path):
+		return ''
+	with open(path, 'r') as optional_file:
+		return optional_file.read().strip()
 
 def main(_):
 	# load json file
@@ -153,6 +166,16 @@ def main(_):
 			thisTemplate = replaceString("$FAST_FORWARD", ff_string, thisTemplate)
 		else:
 			thisTemplate = replaceString("$FAST_FORWARD", "", thisTemplate)
+
+		#page-specific additions, kept in the paper's folder so that regenerating the page does not lose them:
+		#extra_content.html holds sections placed between the abstract and the citation (3D viewers, videos, ...)
+		extraContent = read_optional_file(project['project_name'], 'extra_content.html')
+		if extraContent and "fast_forward" in project:
+			extraContent = "\n\n\t" + extraContent
+		thisTemplate = replaceString("$EXTRA_CONTENT", extraContent, thisTemplate)
+		#extra_head.html holds tags added at the end of <head> (an importmap, a script, ...)
+		extraHead = read_optional_file(project['project_name'], 'extra_head.html')
+		thisTemplate = replaceString("$EXTRA_HEAD", "\n\t" + extraHead if extraHead else "", thisTemplate)
 		
 		#write to html file (and store the name in the json)
 		pageTitle = []
