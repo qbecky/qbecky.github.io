@@ -1,6 +1,6 @@
 let stylesheet_init = false
 
-window.addEventListener('load', function init() {
+window.addEventListener('DOMContentLoaded', function init() {
 	
 	// switch click function
 	let switchToDark = document.getElementById("snake");

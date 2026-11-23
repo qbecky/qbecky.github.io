@@ -1,3 +1,4 @@
+/* Compiled from website/src/sass/homeStylesheet.scss: edit that file, then run `gulp sass`. */
 /* general spacing */
 #name {
 	display: flex;
@@ -15,10 +16,10 @@
   
   /* research formatting */
   .research-image {
-	background-image: url("../img/project_images/sos_hex.png");
 	height: 10rem;
 	width: 10rem;
-	background-size: cover;
+	object-fit: cover;
+	object-position: left top;
 	border-radius: 15px;
 	flex-shrink: 0;
 	margin-right: 1em;
@@ -64,9 +65,11 @@
 	font-family: "Linux Biolinum", sans-serif;
 	font-style: normal;
 	font-weight: normal;
-	text-decoration-color: var(--accent_color);
-	  text-decoration-style: dotted;
-	  text-decoration: underline;
+	/* text-decoration-color: var(--accent_color);
+	text-decoration-style: dotted;
+	text-decoration: underline dotted; */
+	border-bottom: 1px dotted var(--accent_color);
+	text-decoration: none;
   }
   
   .teaching-title a:hover {
@@ -85,6 +88,7 @@
   
   .links {
 	padding-top: 15px;
+	/* display: inline; */
   }
   
   .links > a {
@@ -94,6 +98,11 @@
 	color: white;
 	border-radius: 50px;
 	padding: 2px 9px;
+	line-height: 30px;
+  }
+  
+  #p-inline {
+	display: inline;
   }
   
   /* intro paragraph/footer */
@@ -222,7 +231,7 @@
 	}
   }
   /* make homepage responsive */
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1200px) {
 	#sidebar {
 	  width: 40vw;
 	}
@@ -238,14 +247,14 @@
 	  align-items: flex-start;
 	}
   }
-  @media only screen and (max-width: 700px) {
+  @media only screen and (max-width: 800px) {
 	.research-container {
 	  flex-direction: column;
 	  gap: 15px;
 	  padding-bottom: 50px;
 	}
   }
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 800px) {
 	#sidebar {
 	  position: relative;
 	  width: auto;
@@ -265,10 +274,6 @@
 	}
 	#portrait {
 	  height: 60vw;
-	  width: auto;
-	  margin-right: 10px;
-	  object-fit: contain;
-	  object-position: left;
 	  width: fit-content;
 	}
 	#main {
@@ -286,12 +291,3 @@
 	  margin-left: calc((100vw - 1040px) * 0.5 - 7.5rem);
 	}
   }
-  @media only screen and (max-width: 1350px) and (min-aspect-ratio: 50/25) {
-	#portrait {
-	  height: 50vh;
-	  width: auto;
-	  align-self: flex-end;
-	}
-  }
-  
-  /*# sourceMappingURL=homeStylesheet.css.map */

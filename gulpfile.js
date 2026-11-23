@@ -11,7 +11,7 @@ gulp.task('date', function(callback) {
 });
 
 gulp.task('build_page', function(callback) {
-  exec('cd website/src/py\npython3 static_page_generator.py --projects all\ncd ../../..', function (err, stdout, stderr) {
+  exec('cd website/src/py\npython3 static_page_generator.py --projects all\npython3 static_list_generator.py\ncd ../../..', function (err, stdout, stderr) {
     console.log(stdout.slice(0, -1));
     if (stderr != 0) {console.log(stderr);}
     callback(err);
@@ -58,7 +58,7 @@ gulp.task('sass', function(callback) {
 gulp.task('watch', function(callback) {
   gulp.watch('website/src/sass/*.scss', gulp.series('sass')); 
   gulp.watch('website/src/py/*', gulp.series('build_page')); 
-  gulp.watch('website/data/p*', gulp.series('build_page')); 
+  gulp.watch(['website/data/p*', 'website/data/course_data.json', 'website/data/miscellanea_data.json'], gulp.series('build_page')); 
 
   callback();
 });

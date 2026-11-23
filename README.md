@@ -12,6 +12,8 @@ Running `gulp build` will build python and sass files.
 
 (Building the python files also updates the date at the bottom of the page.)
 
+`homeStylesheet.css` and `projectGridStylesheet.css` in `website/public/css/` are compiled from the `.scss` files in `website/src/sass/`. Edit the `.scss` files, not the compiled `.css`: `gulp sass` and `gulp build` overwrite the `.css`. The other stylesheets in `website/public/css/` have no Sass source and are edited directly.
+
 In a terminal, install `gulp` and `sass` through the `brew` commands
 
 ```
@@ -53,6 +55,18 @@ In order to add a paper from a list of publications, you must:
 - Optionally add page-specific material to that folder: `extra_content.html` holds sections placed between the abstract and the citation (3D viewers, videos, ...), and `extra_head.html` holds tags added at the end of `<head>` (an importmap, a script, ...). Paths inside these files are relative to `paper_pages/`.
 - Run `public/src/py/static_page_generator.py` with the conda environment activated `conda activate web_env`. Be careful with the flag `--erase existing` and specify the list of project pages you would like to update.
 - Do not edit the pages in `paper_pages/` by hand: `--erase_existing` regenerates them from the template and the paper's folder, and anything written directly in a page is lost.
+- Run `website/src/py/static_list_generator.py` to add the paper to the lists of `index.html` and `publications.html` (see below).
+
+## Publication, teaching and miscellanea lists
+
+The lists shown in `index.html`, `publications.html` and `miscellanea.html` are written into these pages by `website/src/py/static_list_generator.py`, from `data/paper_data.json`, `data/course_data.json` and `data/miscellanea_data.json`. After editing one of these data files, run
+
+```
+cd website/src/py
+python3 static_list_generator.py
+```
+
+(`build.sh` and `gulp build` also run it, and `gulp dev` reruns it when a data file changes.) A change in a data file does not appear on the website until the script has run. The script only rewrites what is between the `<!-- ...-list: generated ... -->` and `<!-- end of ...-list -->` comments of each page; do not edit that part by hand.
 
 ## Adding a page
 
