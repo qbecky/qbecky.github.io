@@ -18,7 +18,7 @@
     "teaser_caption": "papers/inverse_geometric_locomotion/teaser_caption.txt",
     "note": "(* denotes  equal contribution)",
     "project_name": "inverse_geometric_locomotion",
-    "links": {  "Project Page": "paper_pages/inverse_geometric_locomotion.html","PDF": "papers/inverse_geometric_locomotion/InverseGeometricLocomotion.pdf", "Code": "https://www.epfl.ch/labs/gcm/research-projects/igl/"} 
+    "links": {  "Project Page": "paper_pages/inverse_geometric_locomotion.html","PDF": "papers/inverse_geometric_locomotion/InverseGeometricLocomotion.pdf", "Code": "https://www.epfl.ch/labs/gcm/research-projects/inverse-geometric-locomotion/"} 
   },
   {"title": "C-Tubes: Design and Optimization of Tubular Structures Composed of Developable Strips",
     "authors": [ "Michele Vidulis*", "Klara Mundilova*", "<b>Quentin Becker*</b>", "Florin Isvoranu", "Mark Pauly"],
@@ -53,7 +53,7 @@
     "project_name": "cshells_iass",
     "links": {  "Project Page": "paper_pages/cshells_iass.html","PDF": "papers/cshells_iass/cshells_iass_paper.pdf", "Code": "https://www.epfl.ch/labs/gcm/research-projects/c-shells/"} 
   },
-  {"title": "C-shells: Deployable Gridshells with Curved Elastic Beams",
+  {"title": "C-shells: Deployable Gridshells with Curved Beams",
     "authors": [ "<b>Quentin Becker</b>", "Seiichi Suzuki", "Yingying (Samara) Ren", "Davide Pellis", "Julian Panetta", "Mark Pauly"],
     "conference": "ACM Transactions on Graphics (SIGGRAPH Asia)",
     "year": 2023,

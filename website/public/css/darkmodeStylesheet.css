@@ -19,6 +19,10 @@ body {
 	background-color: rgb(50, 50, 55);
 }
 
+pre, code {
+	background-color: rgb(50, 50, 55);
+}
+
 @keyframes bluewhite {
   from { color: var(--accent_color); }
   to   { color: white; }
